@@ -77,13 +77,14 @@ let direction = 'up'
 
 // ! Function to check for spacebar input
 function toggleStartEvent(event) {
-  console.log(event)
+  
   if (event.key === ' ') {
 
     snake = [210, 230, 250]
     scoreTotal = 0
     score.innerHTML = scoreTotal
     direction = 'up'
+    stopRareFoodInterval = false
     instr.style.visibility = 'hidden'
     settings.style.visibility = 'hidden'
     keys.style.visibility = 'hidden'
@@ -160,8 +161,10 @@ function startGame() {
     function contact() {
       for (i = 0; i < snake.length; i++) {
         if (snake.indexOf(snake[i]) !== snake.lastIndexOf(snake[i])) {
+          stopRareFoodInterval = true
           clearInterval(interval)
 
+          
           for (var i = 0; i < cells.length; i++) {
             cells[i].classList.remove('snake', 'food', 'rare')
           }
@@ -186,7 +189,7 @@ function startGame() {
           settings.style.visibility = 'visible'
           keys.style.visibility = 'visible'
 
-          stopRareFoodInterval = true
+
         }
       }
 
@@ -249,6 +252,7 @@ function generateFood() {
 
 
 // ! Rare food generator if snakes eats the food on the field, wont generate in the snake.
+
 let stopRareFoodInterval = false
 
 generateRareFood()
@@ -262,12 +266,8 @@ function generateRareFood() {
     randomRareFood = Math.floor(Math.random() * (width ** 2))
 
     if (snake.includes(randomRareFood)) {
-
       clearInterval(rareFoodInterval)
       generateRareFood()
-    } else if (stopRareFoodInterval) {
-      clearInterval(rareFoodInterval)
-      console.log('wtfffff')
     } else {
       cells[randomRareFood].classList.add('rare')
     }
@@ -277,6 +277,12 @@ function generateRareFood() {
       cells[randomRareFood].classList.remove('rare')
 
     }, 3000)
+
+    if (stopRareFoodInterval) {
+
+      clearInterval(rareFoodInterval)
+
+    }
 
   }, 10000)
 }
@@ -339,8 +345,6 @@ function checkLeaderboard() {
   let checkHighScore = scoreTotal
 
   if (checkHighScore < localStorage.getItem('fourth') && checkHighScore > localStorage.getItem('fifth')) {
-    console.log(localStorage.getItem('fourth'))
-    console.log(localStorage.getItem('fifth'))
 
     localStorage.setItem('fifth', scoreTotal)
     fifth.innerHTML = scoreTotal
@@ -375,7 +379,7 @@ function checkLeaderboard() {
     && checkHighScore > localStorage.getItem('fifth')) {
 
     localStorage.setItem('first', scoreTotal)
-    console.log(scoreTotal)
+    
     first.innerHTML = scoreTotal
 
   }
