@@ -1,0 +1,340 @@
+//! Settings
+const normal = document.querySelector('.normal')
+const fast = document.querySelector('.fast')
+const rapid = document.querySelector('.rapid')
+
+// ! Leaderboard
+let first = document.querySelector('#first')
+let second = document.querySelector('#second')
+let third = document.querySelector('#third')
+let fourth = document.querySelector('#fourth')
+let fifth = document.querySelector('#fifth')
+
+first.innerHTML = localStorage.getItem('first')
+second.innerHTML = localStorage.getItem('second')
+third.innerHTML = localStorage.getItem('third')
+fourth.innerHTML = localStorage.getItem('fourth')
+fifth.innerHTML = localStorage.getItem('fifth')
+
+// ! Space bar div
+const instr = document.querySelector('.instr')
+
+
+// ! Game variables
+const game = document.querySelector('.game')
+let score = document.querySelector('#score')
+
+const width = 20
+
+let scoreTotal = 0
+
+let speed = 100
+
+
+// ! The snake
+let snake = [210, 230, 250]
+
+// ! The field
+const cells = []
+
+
+// ! Creating the game field
+for (let i = 0; i < width ** 2; i++) {
+  // Create an element
+  const div = document.createElement('div')
+  div.classList.add('cell')
+  game.appendChild(div)
+  // div.innerHTML = i
+  // Push the div to my array of cells
+  cells.push(div)
+}
+
+// ! Assign the snake to the field
+snake.forEach((body) => {
+  cells[body].classList.add('snake')
+})
+
+
+// ! Creating a new frame each time the interval is played
+function newFrame() {
+
+  for (var i = 0; i < cells.length; i++) {
+    cells[i].classList.remove('snake')
+  }
+
+  snake.forEach((body) => {
+    cells[body].classList.add('snake')
+
+  })
+}
+
+// ! Snake direction
+let direction = 'up'
+
+
+// ! Function to check for spacebar input
+function toggleStartEvent(event) {
+  console.log(event)
+  if (event.key === ' ') {
+
+    snake = [210, 230, 250]
+    scoreTotal = 0
+    score.innerHTML = scoreTotal
+    direction = 'up'
+    instr.style.visibility = 'hidden'
+    startGame()
+  }
+}
+
+
+// ! Add an event listener to window
+window.addEventListener('keypress', toggleStartEvent)
+
+
+
+// ! Starting the game
+function startGame() {
+
+  window.removeEventListener('keypress', toggleStartEvent)
+  cells[randomFood].classList.add('food')
+  const interval = setInterval(() => {
+
+    if (direction === 'right' && (snake[0] % width !== width - 1)) {
+      snake.unshift(snake[0] + 1)
+      snake.pop()
+      // newFrame()
+      // contact()
+
+
+
+    } else if (direction === 'right' && (snake[0] % width === width - 1)) {
+      snake.unshift(snake[0] - 19)
+      snake.pop()
+      // newFrame()
+      // contact()
+
+
+    } else if (direction === 'up' && snake[0] > width) {
+      snake.unshift(snake[0] - width)
+      snake.pop()
+      // newFrame()
+      // contact()
+
+
+
+    } else if (direction === 'up' && snake[0] < width) {
+      snake.unshift(snake[0] + 380)
+      snake.pop()
+      // newFrame()
+      // contact()
+
+
+
+    } else if (direction === 'down' && snake[0] < 380) {
+      snake.unshift(snake[0] + width)
+      snake.pop()
+      // newFrame()
+      // contact()
+
+
+
+    } else if (direction === 'down' && snake[0] > 379) {
+      snake.unshift(snake[0] - 380)
+      snake.pop()
+      // newFrame()
+      // contact()
+
+
+    } else if (direction === 'left' && snake[0] % width !== 0) {
+      snake.unshift(snake[0] - 1)
+      snake.pop()
+      // newFrame()
+      // contact()
+
+
+
+    } else if (direction === 'left' && snake[0] % width === 0) {
+      snake.unshift(snake[0] + 19)
+      snake.pop()
+      // newFrame()
+      // contact()
+
+    }
+
+    newFrame()
+    contact()
+
+    // ! Checks snake for contact
+    function contact() {
+      for (i = 0; i < snake.length; i++) {
+        if (snake.indexOf(snake[i]) !== snake.lastIndexOf(snake[i])) {
+          clearInterval(interval)
+
+
+
+          for (var i = 0; i < cells.length; i++) {
+            cells[i].classList.remove('snake', 'food')
+          }
+
+          const gameover = [101, 102, 103, 104, 121, 141, 161, 181, 182,
+            183, 184, 164, 144, 143, 186, 166, 146, 126, 107, 108, 129,
+            149, 169, 189, 147, 148, 191, 171, 151, 131, 133, 111, 132,
+            114, 134, 154, 174, 194, 196, 176, 156, 136, 116, 117, 118,
+            157, 158, 197, 198, 221, 241, 261, 281, 301, 222, 223, 224,
+            244, 264, 284, 304, 303, 302, 226, 246, 229, 249, 269, 266,
+            287, 288, 231, 251, 271, 291, 311, 232, 233, 272, 273, 307,
+            308, 312, 313, 236, 237, 238, 237, 238, 277, 278, 318, 235,
+            255, 275, 295, 315, 258, 276, 297]
+
+          gameover.forEach((over) => {
+            cells[over].classList.add('snake')
+          })
+          checkLeaderboard()
+          instr.style.visibility = 'visible'
+          window.addEventListener('keypress', toggleStartEvent)
+
+
+        }
+      }
+
+
+      //! The food logic
+      if (snake[0] === randomFood) {
+
+        cells[randomFood].classList.remove('food')
+        // add points
+        scoreTotal += 1
+        score.innerHTML = scoreTotal
+
+        // make snake bigger
+        snake.push(snake[0])
+
+
+        // run code to generate more
+        generateFood()
+
+      }
+    }
+  }, speed)
+
+}
+
+
+
+
+
+
+// ! Adding the food at the start of the game
+let randomFood = Math.floor(Math.random() * (width ** 2))
+cells[randomFood].classList.add('food')
+
+// ! Food generator if snakes eats the food on the field
+function generateFood() {
+
+  randomFood = Math.floor(Math.random() * (width ** 2))
+  cells[randomFood].classList.add('food')
+}
+
+
+// ! Listeners on the arrows, changes the direction
+document.addEventListener('keydown', (event) => {
+  const key = event.key
+
+  if (key === 'ArrowUp') {
+    direction = 'up'
+  } else if (key === 'ArrowDown') {
+    direction = 'down'
+  } else if (key === 'ArrowLeft') {
+    direction = 'left'
+  } else if (key === 'ArrowRight') {
+    direction = 'right'
+  }
+
+})
+
+// ! Listeners on the settings 
+normal.classList.add('activeSpeed')
+
+normal.addEventListener('click', () => {
+  speed = 100
+  normal.classList.add('activeSpeed')
+  fast.classList.remove('activeSpeed')
+  rapid.classList.remove('activeSpeed')
+
+})
+
+fast.addEventListener('click', () => {
+  speed = 70
+  fast.classList.add('activeSpeed')
+  normal.classList.remove('activeSpeed')
+  rapid.classList.remove('activeSpeed')
+})
+
+rapid.addEventListener('click', () => {
+  speed = 50
+  rapid.classList.add('activeSpeed')
+  normal.classList.remove('activeSpeed')
+  fast.classList.remove('activeSpeed')
+})
+
+
+
+
+
+function checkLeaderboard() {
+  let checkHighScore = scoreTotal
+
+  if (checkHighScore < localStorage.getItem('fourth') && checkHighScore > localStorage.getItem('fifth')) {
+    console.log(localStorage.getItem('fourth'))
+    console.log(localStorage.getItem('fifth'))
+
+    localStorage.setItem('fifth', scoreTotal)
+    fifth.innerHTML = scoreTotal
+
+  } else if (checkHighScore < localStorage.getItem('first')
+    && checkHighScore < localStorage.getItem('second')
+    && checkHighScore < localStorage.getItem('third')
+    && checkHighScore > localStorage.getItem('fifth')) {
+
+    localStorage.setItem('fourth', scoreTotal)
+    fourth.innerHTML = scoreTotal
+
+  } else if (checkHighScore < localStorage.getItem('first')
+    && checkHighScore < localStorage.getItem('second')
+    && checkHighScore > localStorage.getItem('fourth')
+    && checkHighScore > localStorage.getItem('fifth')) {
+
+    localStorage.setItem('third', scoreTotal)
+    third.innerHTML = scoreTotal
+
+  } else if (checkHighScore < localStorage.getItem('first')
+    && checkHighScore > localStorage.getItem('third')
+    && checkHighScore > localStorage.getItem('fourth')
+    && checkHighScore > localStorage.getItem('fifth')) {
+
+    localStorage.setItem('second', scoreTotal)
+    second.innerHTML = scoreTotal
+
+  } else if (checkHighScore > localStorage.getItem('second')
+    && checkHighScore > localStorage.getItem('third')
+    && checkHighScore > localStorage.getItem('fourth')
+    && checkHighScore > localStorage.getItem('fifth')) {
+
+    localStorage.setItem('first', scoreTotal)
+    console.log(scoreTotal)
+    first.innerHTML = scoreTotal
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+

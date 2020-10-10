@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Snake</title>
+  <link type="text/css" rel="stylesheet" href="normalize.css" />
+  <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
-  <h1>kasjan</h1>
+
+  <div class="left">
+    <img id="graphic" src="./img/snake.png">
+  </div>
+
+  <div class="screen">
+    <div class="nav">
+      <div id="score">0</div>
+    </div>
+    <div class="game">
+    </div>
+    <p class="instr">Press [space] to play!</p>
+  </div>
+
+  <div class="right">
+
+    <img id="logo" src="./img/logo.png">
+
+    <div class="leaderboard">
+      <h3>Leaderboard &#127942;</h3>
+      <div class="ranking">
+
+        <div id="first">0</div>
+        <div id="second">0</div>
+        <div id="third">0</div>
+        <div id="fourth">0</div>
+        <div id="fifth">0</div>
+      </div>
+    </div>
+
+      <div class="settings">
+        <h3>Snake Speed &#128012;</h3>
+
+        <button class="normal">Normal</button>
+        <button class="fast">Fast</button>
+        <button class="rapid">Rapid</button>
+
+      </div>
+
+    </div>
+
+
+    <script src="app.js" charset="utf-8"></script>
 </body>
+
 </html>
