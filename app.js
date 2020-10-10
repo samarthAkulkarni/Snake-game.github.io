@@ -1,4 +1,5 @@
 //! Settings
+const settings = document.querySelector('.settings')
 const normal = document.querySelector('.normal')
 const fast = document.querySelector('.fast')
 const rapid = document.querySelector('.rapid')
@@ -82,6 +83,7 @@ function toggleStartEvent(event) {
     score.innerHTML = scoreTotal
     direction = 'up'
     instr.style.visibility = 'hidden'
+    settings.style.visibility = 'hidden'
     startGame()
   }
 }
@@ -192,6 +194,7 @@ function startGame() {
           checkLeaderboard()
           instr.style.visibility = 'visible'
           window.addEventListener('keypress', toggleStartEvent)
+          settings.style.visibility = 'visible'
 
 
         }
@@ -218,9 +221,6 @@ function startGame() {
   }, speed)
 
 }
-
-
-
 
 
 
