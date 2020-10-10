@@ -1,8 +1,10 @@
 //! Settings
 const settings = document.querySelector('.settings')
+const keys = document.querySelector('#keys')
 const normal = document.querySelector('.normal')
 const fast = document.querySelector('.fast')
 const rapid = document.querySelector('.rapid')
+const godlike = document.querySelector('.godlike')
 
 // ! Leaderboard
 let first = document.querySelector('#first')
@@ -84,6 +86,7 @@ function toggleStartEvent(event) {
     direction = 'up'
     instr.style.visibility = 'hidden'
     settings.style.visibility = 'hidden'
+    keys.style.visibility = 'hidden'
     startGame()
   }
 }
@@ -104,67 +107,54 @@ function startGame() {
     if (direction === 'right' && (snake[0] % width !== width - 1)) {
       snake.unshift(snake[0] + 1)
       snake.pop()
-      // newFrame()
-      // contact()
-
-
+      newFrame()
+      contact()
 
     } else if (direction === 'right' && (snake[0] % width === width - 1)) {
       snake.unshift(snake[0] - 19)
       snake.pop()
-      // newFrame()
-      // contact()
-
+      newFrame()
+      contact()
 
     } else if (direction === 'up' && snake[0] > width) {
       snake.unshift(snake[0] - width)
       snake.pop()
-      // newFrame()
-      // contact()
-
-
+      newFrame()
+      contact()
 
     } else if (direction === 'up' && snake[0] < width) {
       snake.unshift(snake[0] + 380)
       snake.pop()
-      // newFrame()
-      // contact()
-
-
+      newFrame()
+      contact()
 
     } else if (direction === 'down' && snake[0] < 380) {
       snake.unshift(snake[0] + width)
       snake.pop()
-      // newFrame()
-      // contact()
-
-
+      newFrame()
+      contact()
 
     } else if (direction === 'down' && snake[0] > 379) {
       snake.unshift(snake[0] - 380)
       snake.pop()
-      // newFrame()
-      // contact()
-
+      newFrame()
+      contact()
 
     } else if (direction === 'left' && snake[0] % width !== 0) {
       snake.unshift(snake[0] - 1)
       snake.pop()
-      // newFrame()
-      // contact()
-
-
+      newFrame()
+      contact()
 
     } else if (direction === 'left' && snake[0] % width === 0) {
       snake.unshift(snake[0] + 19)
       snake.pop()
-      // newFrame()
-      // contact()
+      newFrame()
+      contact()
 
     }
 
-    newFrame()
-    contact()
+
 
     // ! Checks snake for contact
     function contact() {
@@ -172,10 +162,8 @@ function startGame() {
         if (snake.indexOf(snake[i]) !== snake.lastIndexOf(snake[i])) {
           clearInterval(interval)
 
-
-
           for (var i = 0; i < cells.length; i++) {
-            cells[i].classList.remove('snake', 'food')
+            cells[i].classList.remove('snake', 'food', 'rare')
           }
 
           const gameover = [101, 102, 103, 104, 121, 141, 161, 181, 182,
@@ -191,12 +179,14 @@ function startGame() {
           gameover.forEach((over) => {
             cells[over].classList.add('snake')
           })
+
           checkLeaderboard()
           instr.style.visibility = 'visible'
           window.addEventListener('keypress', toggleStartEvent)
           settings.style.visibility = 'visible'
+          keys.style.visibility = 'visible'
 
-
+          stopRareFoodInterval = true
         }
       }
 
@@ -216,6 +206,22 @@ function startGame() {
         // run code to generate more
         generateFood()
 
+      } if (snake[0] === randomRareFood) {
+
+        cells[randomRareFood].classList.remove('rare')
+        // add points
+        scoreTotal += 5
+        score.innerHTML = scoreTotal
+
+        // make snake bigger
+        snake.push(snake[0])
+
+
+
+
+
+
+
       }
     }
   }, speed)
@@ -228,11 +234,51 @@ function startGame() {
 let randomFood = Math.floor(Math.random() * (width ** 2))
 cells[randomFood].classList.add('food')
 
-// ! Food generator if snakes eats the food on the field
+// ! Food generator if snakes eats the food on the field, wont generate in the snake.
 function generateFood() {
 
   randomFood = Math.floor(Math.random() * (width ** 2))
-  cells[randomFood].classList.add('food')
+
+  if (snake.includes(randomFood)) {
+    generateFood()
+  } else {
+    cells[randomFood].classList.add('food')
+  }
+}
+
+
+
+// ! Rare food generator if snakes eats the food on the field, wont generate in the snake.
+let stopRareFoodInterval = false
+
+generateRareFood()
+
+let randomRareFood = Math.floor(Math.random() * (width ** 2))
+
+function generateRareFood() {
+
+  const rareFoodInterval = setInterval(() => {
+
+    randomRareFood = Math.floor(Math.random() * (width ** 2))
+
+    if (snake.includes(randomRareFood)) {
+
+      clearInterval(rareFoodInterval)
+      generateRareFood()
+    } else if (stopRareFoodInterval) {
+      clearInterval(rareFoodInterval)
+      console.log('wtfffff')
+    } else {
+      cells[randomRareFood].classList.add('rare')
+    }
+
+    setTimeout(() => {
+
+      cells[randomRareFood].classList.remove('rare')
+
+    }, 3000)
+
+  }, 10000)
 }
 
 
@@ -260,7 +306,7 @@ normal.addEventListener('click', () => {
   normal.classList.add('activeSpeed')
   fast.classList.remove('activeSpeed')
   rapid.classList.remove('activeSpeed')
-
+  godlike.classList.remove('activeSpeed')
 })
 
 fast.addEventListener('click', () => {
@@ -268,6 +314,7 @@ fast.addEventListener('click', () => {
   fast.classList.add('activeSpeed')
   normal.classList.remove('activeSpeed')
   rapid.classList.remove('activeSpeed')
+  godlike.classList.remove('activeSpeed')
 })
 
 rapid.addEventListener('click', () => {
@@ -275,9 +322,16 @@ rapid.addEventListener('click', () => {
   rapid.classList.add('activeSpeed')
   normal.classList.remove('activeSpeed')
   fast.classList.remove('activeSpeed')
+  godlike.classList.remove('activeSpeed')
 })
 
-
+godlike.addEventListener('click', () => {
+  speed = 20
+  godlike.classList.add('activeSpeed')
+  normal.classList.remove('activeSpeed')
+  fast.classList.remove('activeSpeed')
+  rapid.classList.remove('activeSpeed')
+})
 
 
 
@@ -327,13 +381,6 @@ function checkLeaderboard() {
   }
 
 }
-
-
-
-
-
-
-
 
 
 
