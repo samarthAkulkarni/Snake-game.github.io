@@ -39,28 +39,35 @@ body {
   border-radius: 20px 20px 22px 22px;
 }
 
-#firstname, #secondname, #thirdname, #fourthname, #fifthname {
+#firstname,
+#secondname,
+#thirdname,
+#fourthname,
+#fifthname {
   text-align: center;
 }
+
 #firstname {
   background-color: rgb(228, 212, 72);
   font-weight: bold;
 }
 
 #secondname {
-  background-color: rgb(192,192,192);
+  background-color: rgb(192, 192, 192);
   font-weight: bold;
-  
+
 }
 
 #thirdname {
   background-color: rgb(205, 127, 50);
   font-weight: bold;
 }
+
 #fourthname {
   background-color: rgb(124, 129, 136);
   font-weight: bold;
 }
+
 #fifthname {
   background-color: rgb(67, 68, 64);
   font-weight: bold;
@@ -85,7 +92,7 @@ body {
 
 #second {
   font-size: 17px;
-  background-color: rgb(192,192,192);
+  background-color: rgb(192, 192, 192);
   font-weight: bolder;
 }
 
@@ -98,11 +105,13 @@ body {
   font-size: 15px;
   background-color: rgb(124, 129, 136);
 }
+
 .fifth {
   text-align: center;
   font-size: 15px;
   background-color: rgb(67, 68, 64);
 }
+
 .fifthActive {
   border-radius: 0px 0px 10px 10px;
 }
@@ -111,22 +120,25 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 .name {
   display: flex;
-flex-direction: row;
-justify-content: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .name p {
   margin: 0px 0px 5px 0px;
   color: rgb(40, 57, 11);
 }
+
 .inputname {
-display: flex;
-flex-direction: row;
-justify-content: center;
-padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 10px;
 }
+
 .playername {
   display: flex;
   flex-direction: column;
@@ -137,10 +149,11 @@ padding-bottom: 10px;
   border-radius: 0px 0px 20px 20px;
   padding: 5px;
 }
+
 #playername {
   width: 70%;
   border: 2px solid rgb(0, 129, 52);
-  
+
 }
 
 
@@ -159,6 +172,7 @@ padding-bottom: 10px;
   border: 2px solid black;
   background-color: rgb(6, 95, 41);
 }
+
 .screen {
   align-items: center;
   align-self: center;
@@ -203,11 +217,13 @@ padding-bottom: 10px;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .rare {
   background-image: url(./img/rare.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .nav {
   display: flex;
   flex-direction: column;
@@ -215,6 +231,7 @@ padding-bottom: 10px;
   width: 400px;
   border: 2px solid black;
 }
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -229,16 +246,19 @@ padding-bottom: 10px;
 #score {
   color: rgb(40, 57, 11);
   font-size: 25px;
-  
+
 }
+
 .navright {
-  
+
   display: flex;
   flex-direction: row;
   height: 100%;
-  
+
 }
-#foodicon, #rareicon {
+
+#foodicon,
+#rareicon {
   height: 100%;
   padding: 0px 3px 0px 3px;
 }
@@ -286,8 +306,7 @@ h3 {
 .normal,
 .fast,
 .rapid,
-.godlike,
-input:focus {
+.godlike {
   cursor: pointer;
   font-size: 15px;
   color: black;
@@ -331,7 +350,7 @@ input:focus {
 }
 
 .godlike:hover {
-  background: radial-gradient(circle, rgba(255,255,255,1) 30%, rgba(5,19,34,1) 100%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 30%, rgba(5, 19, 34, 1) 100%);
 }
 
 .activeSpeed {
