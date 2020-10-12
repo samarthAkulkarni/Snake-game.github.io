@@ -6,6 +6,19 @@ const fast = document.querySelector('.fast')
 const rapid = document.querySelector('.rapid')
 const godlike = document.querySelector('.godlike')
 
+// ! Audio & ambience
+const ambience = document.querySelector('.amb')
+const audioPlayer = document.querySelector('audio')
+
+// window.addEventListener('DOMContentLoaded', event => {
+//   ambience.volume = 0.2
+//   ambience.play()
+// })
+
+// ambience.play()
+
+
+
 // ! screen points update
 const navtext1 = document.querySelector('#navtext1')
 const navtext2 = document.querySelector('#navtext2')
@@ -71,7 +84,8 @@ function updateScoreNames() {
 
 // ! ok button listener
 ok.addEventListener('click', () => {
-
+  audioPlayer.src = './aud/click.mp3'
+  audioPlayer.play()
   playername = playernameinput.value
   playername = playername.charAt(0).toUpperCase() + playername.slice(1)
   inputname.style.visibility = 'hidden'
@@ -151,7 +165,9 @@ let direction = 'up'
 function toggleStartEvent(event) {
 
   if (event.key === ' ') {
-
+    ambience.play()
+    audioPlayer.src = './aud/start.mp3'
+    audioPlayer.play()
     snake = [210, 230, 250]
     scoreTotal = 0
     score.innerHTML = scoreTotal
@@ -238,9 +254,7 @@ function startGame() {
     function contact() {
       for (i = 0; i < snake.length; i++) {
         if (snake.indexOf(snake[i]) !== snake.lastIndexOf(snake[i])) {
-
           stopRareFoodInterval = true
-
           clearInterval(interval)
 
           for (var i = 0; i < cells.length; i++) {
@@ -270,6 +284,12 @@ function startGame() {
           fifth.classList.remove('fifthActive')
 
 
+
+
+          audioPlayer.src = './aud/3.mp3'
+          audioPlayer.play()
+
+          ambience.pause()
         }
       }
 
@@ -282,6 +302,10 @@ function startGame() {
         scoreTotal += activepoints[0]
         score.innerHTML = scoreTotal
 
+        // play sound
+        audioPlayer.src = './aud/1.mp3'
+        audioPlayer.play()
+
         // make snake bigger
         snake.push(snake[0])
 
@@ -292,11 +316,14 @@ function startGame() {
 
         cells[randomRareFood].classList.remove('rare')
         randomRareFood = Math.floor(Math.random() * (width ** 2))
-        
+
         rareFoodEaten = true
         // add points
         scoreTotal += activepoints[1]
         score.innerHTML = scoreTotal
+
+        audioPlayer.src = './aud/2.mp3'
+        audioPlayer.play()
 
         // make snake bigger
 
@@ -361,7 +388,7 @@ function generateRareFood() {
       setTimeout(() => {
 
         cells[randomRareFood].classList.remove('rare')
-  
+
       }, 3000)
 
     }
@@ -370,7 +397,7 @@ function generateRareFood() {
       clearInterval(rareFoodInterval)
       // ! 
     }
-    if  (!rareFoodEaten) {
+    if (!rareFoodEaten) {
       console.log('not eaten food')
       cells[randomRareFood].classList.add('rare')
       rareFoodEaten = false
@@ -378,13 +405,13 @@ function generateRareFood() {
       setTimeout(() => {
 
         cells[randomRareFood].classList.remove('rare')
-  
+
       }, 3000)
 
     }
 
 
-    
+
 
 
 
@@ -414,6 +441,8 @@ document.addEventListener('keydown', (event) => {
 normal.classList.add('activeSpeed')
 
 normal.addEventListener('click', () => {
+  audioPlayer.src = './aud/click.mp3'
+  audioPlayer.play()
   speed = 100
   activepoints = [1, 3]
   navtext1.innerHTML = '1 point'
@@ -425,6 +454,8 @@ normal.addEventListener('click', () => {
 })
 
 fast.addEventListener('click', () => {
+  audioPlayer.src = './aud/click.mp3'
+  audioPlayer.play()
   speed = 70
   activepoints = [2, 4]
   navtext1.innerHTML = '2 points'
@@ -436,6 +467,8 @@ fast.addEventListener('click', () => {
 })
 
 rapid.addEventListener('click', () => {
+  audioPlayer.src = './aud/click.mp3'
+  audioPlayer.play()
   speed = 50
   activepoints = [3, 5]
   navtext1.innerHTML = '3 points'
@@ -447,6 +480,8 @@ rapid.addEventListener('click', () => {
 })
 
 godlike.addEventListener('click', () => {
+  audioPlayer.src = './aud/click.mp3'
+  audioPlayer.play()
   speed = 20
   activepoints = [4, 6]
   navtext1.innerHTML = '4 points'
@@ -493,7 +528,7 @@ function checkLeaderboard() {
       updateScoreNames()
     } else if (playername === undefined) {
       localStorage.setItem('fourthname', '')
-      
+
       updateScoreNames()
     }
 
