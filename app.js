@@ -11,8 +11,70 @@ let first = document.querySelector('#first')
 let second = document.querySelector('#second')
 let third = document.querySelector('#third')
 let fourth = document.querySelector('#fourth')
-let fifth = document.querySelector('#fifth')
+let fifth = document.querySelector('.fifth')
 
+const fifthActive = document.querySelector('#fifthActive')
+
+// ! tracks playername input
+let playernameinput = document.querySelector('#playername')
+let playername = undefined
+
+// ! Name divs on leaderboard
+let firstname = document.querySelector('#firstname')
+let secondname = document.querySelector('#secondname')
+let thirdname = document.querySelector('#thirdname')
+let fourthname = document.querySelector('#fourthname')
+let fifthname = document.querySelector('#fifthname')
+
+// ! the name input bar
+const inputname = document.querySelector('.playername')
+
+// ! ok button to submit
+const ok = document.querySelector('#ok')
+
+// ! shows the scores at he start
+first.innerHTML = localStorage.getItem('first')
+second.innerHTML = localStorage.getItem('second')
+third.innerHTML = localStorage.getItem('third')
+fourth.innerHTML = localStorage.getItem('fourth')
+fifth.innerHTML = localStorage.getItem('fifth')
+
+// ! shows the names at the start, only if a name is present in local storage.
+updateScoreNames()
+
+fourthname.innerHTML = undefined
+
+function updateScoreNames() {
+  if (localStorage.getItem('fifthname') !== undefined) {
+    fifthname.innerHTML = localStorage.getItem('fifthname')
+    if (localStorage.getItem('fourthname') !== undefined) {
+      fourthname.innerHTML = localStorage.getItem('fourthname')
+      if (localStorage.getItem('thirdname') !== undefined) {
+        thirdname.innerHTML = localStorage.getItem('thirdname')
+        if (localStorage.getItem('secondname') !== undefined) {
+          secondname.innerHTML = localStorage.getItem('secondname')
+          if (localStorage.getItem('firstname') !== undefined) {
+            firstname.innerHTML = localStorage.getItem('firstname')
+
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// ! ok button listener
+ok.addEventListener('click', () => {
+
+  playername = playernameinput.value
+  playername = playername.charAt(0).toUpperCase() + playername.slice(1)
+  inputname.style.visibility = 'hidden'
+  fifth.classList.add('fifthActive')
+
+})
+
+// ! Show the scores at the start
 first.innerHTML = localStorage.getItem('first')
 second.innerHTML = localStorage.getItem('second')
 third.innerHTML = localStorage.getItem('third')
@@ -35,7 +97,7 @@ let speed = 100
 
 
 // ! The snake
-let snake = [210, 230, 250]
+let snake = [210, 230, 250, 270, 290, 310, 330, 350, 370, 390]
 
 // ! The field
 const cells = []
@@ -69,6 +131,7 @@ function newFrame() {
     cells[body].classList.add('snake')
 
   })
+
 }
 
 // ! Snake direction
@@ -77,10 +140,10 @@ let direction = 'up'
 
 // ! Function to check for spacebar input
 function toggleStartEvent(event) {
-  
+
   if (event.key === ' ') {
 
-    snake = [210, 230, 250]
+    snake = [210, 230, 250, 270, 290, 310, 330, 350, 370, 390]
     scoreTotal = 0
     score.innerHTML = scoreTotal
     direction = 'up'
@@ -88,6 +151,10 @@ function toggleStartEvent(event) {
     instr.style.visibility = 'hidden'
     settings.style.visibility = 'hidden'
     keys.style.visibility = 'hidden'
+    inputname.style.visibility = 'hidden'
+    fifth.classList.add('fifthActive')
+
+
     startGame()
   }
 }
@@ -109,62 +176,63 @@ function startGame() {
       snake.unshift(snake[0] + 1)
       snake.pop()
       newFrame()
-      contact()
+      // contact()    
 
     } else if (direction === 'right' && (snake[0] % width === width - 1)) {
       snake.unshift(snake[0] - 19)
       snake.pop()
       newFrame()
-      contact()
+      // contact()
 
     } else if (direction === 'up' && snake[0] > width) {
       snake.unshift(snake[0] - width)
       snake.pop()
       newFrame()
-      contact()
+      // contact()
 
     } else if (direction === 'up' && snake[0] < width) {
       snake.unshift(snake[0] + 380)
       snake.pop()
       newFrame()
-      contact()
+      // contact()
 
     } else if (direction === 'down' && snake[0] < 380) {
       snake.unshift(snake[0] + width)
       snake.pop()
       newFrame()
-      contact()
+      // contact()
 
     } else if (direction === 'down' && snake[0] > 379) {
       snake.unshift(snake[0] - 380)
       snake.pop()
       newFrame()
-      contact()
+      // contact()
 
     } else if (direction === 'left' && snake[0] % width !== 0) {
       snake.unshift(snake[0] - 1)
       snake.pop()
       newFrame()
-      contact()
+      // contact()
 
     } else if (direction === 'left' && snake[0] % width === 0) {
       snake.unshift(snake[0] + 19)
       snake.pop()
       newFrame()
-      contact()
+      // contact()
 
     }
 
 
-
+    contact()
     // ! Checks snake for contact
     function contact() {
       for (i = 0; i < snake.length; i++) {
         if (snake.indexOf(snake[i]) !== snake.lastIndexOf(snake[i])) {
+
           stopRareFoodInterval = true
+
           clearInterval(interval)
 
-          
           for (var i = 0; i < cells.length; i++) {
             cells[i].classList.remove('snake', 'food', 'rare')
           }
@@ -188,6 +256,8 @@ function startGame() {
           window.addEventListener('keypress', toggleStartEvent)
           settings.style.visibility = 'visible'
           keys.style.visibility = 'visible'
+          inputname.style.visibility = 'visible'
+          fifth.classList.remove('fifthActive')
 
 
         }
@@ -205,25 +275,22 @@ function startGame() {
         // make snake bigger
         snake.push(snake[0])
 
-
         // run code to generate more
         generateFood()
 
       } if (snake[0] === randomRareFood) {
 
         cells[randomRareFood].classList.remove('rare')
+        randomRareFood = Math.floor(Math.random() * (width ** 2))
+        
+        rareFoodEaten = true
         // add points
         scoreTotal += 5
         score.innerHTML = scoreTotal
 
         // make snake bigger
+
         snake.push(snake[0])
-
-
-
-
-
-
 
       }
     }
@@ -256,8 +323,15 @@ function generateFood() {
 let stopRareFoodInterval = false
 
 generateRareFood()
+let rareFoodEaten = false
 
 let randomRareFood = Math.floor(Math.random() * (width ** 2))
+
+setTimeout(() => {
+
+  cells[randomRareFood].classList.add('rare')
+
+}, 10000)
 
 function generateRareFood() {
 
@@ -265,24 +339,40 @@ function generateRareFood() {
 
     randomRareFood = Math.floor(Math.random() * (width ** 2))
 
-    if (snake.includes(randomRareFood)) {
-      clearInterval(rareFoodInterval)
-      generateRareFood()
-    } else {
+    // ! if food is eaten, 
+    if (rareFoodEaten) {
       cells[randomRareFood].classList.add('rare')
+      rareFoodEaten = false
+
+      setTimeout(() => {
+
+        cells[randomRareFood].classList.remove('rare')
+  
+      }, 3000)
+
     }
-
-    setTimeout(() => {
-
-      cells[randomRareFood].classList.remove('rare')
-
-    }, 3000)
-
+    // !! end game
     if (stopRareFoodInterval) {
-
       clearInterval(rareFoodInterval)
+      // ! 
+    }
+    if  (!rareFoodEaten) {
+      console.log('not eaten food')
+      cells[randomRareFood].classList.add('rare')
+      rareFoodEaten = false
+
+      setTimeout(() => {
+
+        cells[randomRareFood].classList.remove('rare')
+  
+      }, 3000)
 
     }
+
+
+    
+
+
 
   }, 10000)
 }
@@ -340,14 +430,26 @@ godlike.addEventListener('click', () => {
 })
 
 
-
+// ! Logic of the leaderboard
 function checkLeaderboard() {
   let checkHighScore = scoreTotal
+
 
   if (checkHighScore < localStorage.getItem('fourth') && checkHighScore > localStorage.getItem('fifth')) {
 
     localStorage.setItem('fifth', scoreTotal)
     fifth.innerHTML = scoreTotal
+
+    if (playername !== undefined) {
+      localStorage.setItem('fifthname', playername)
+      fifthname.innerHTML = playername
+      updateScoreNames()
+    } else if (playername === undefined) {
+      localStorage.setItem('fifthname', '')
+
+      updateScoreNames()
+    }
+
 
   } else if (checkHighScore < localStorage.getItem('first')
     && checkHighScore < localStorage.getItem('second')
@@ -357,6 +459,17 @@ function checkLeaderboard() {
     localStorage.setItem('fourth', scoreTotal)
     fourth.innerHTML = scoreTotal
 
+    if (playername !== undefined) {
+      localStorage.setItem('fourthname', playername)
+      fourthname.innerHTML = playername
+      updateScoreNames()
+    } else if (playername === undefined) {
+      localStorage.setItem('fourthname', '')
+      // fourthname.innerHTML = undefined
+      updateScoreNames()
+    }
+
+
   } else if (checkHighScore < localStorage.getItem('first')
     && checkHighScore < localStorage.getItem('second')
     && checkHighScore > localStorage.getItem('fourth')
@@ -364,6 +477,16 @@ function checkLeaderboard() {
 
     localStorage.setItem('third', scoreTotal)
     third.innerHTML = scoreTotal
+
+    if (playername !== undefined) {
+      localStorage.setItem('thirdname', playername)
+      thirdname.innerHTML = playername
+      updateScoreNames()
+    } else if (playername === undefined) {
+      localStorage.setItem('thirdname', '')
+
+      updateScoreNames()
+    }
 
   } else if (checkHighScore < localStorage.getItem('first')
     && checkHighScore > localStorage.getItem('third')
@@ -373,19 +496,41 @@ function checkLeaderboard() {
     localStorage.setItem('second', scoreTotal)
     second.innerHTML = scoreTotal
 
+    if (playername !== undefined) {
+      localStorage.setItem('secondname', playername)
+      secondname.innerHTML = playername
+      updateScoreNames()
+    } else if (playername === undefined) {
+      localStorage.setItem('secondname', '')
+
+      updateScoreNames()
+    }
+
   } else if (checkHighScore > localStorage.getItem('second')
     && checkHighScore > localStorage.getItem('third')
     && checkHighScore > localStorage.getItem('fourth')
     && checkHighScore > localStorage.getItem('fifth')) {
 
     localStorage.setItem('first', scoreTotal)
-    
     first.innerHTML = scoreTotal
+
+    if (playername !== undefined) {
+      localStorage.setItem('firstname', playername)
+      firstname.innerHTML = playername
+      updateScoreNames()
+    } else if (playername === undefined) {
+      localStorage.setItem('firstname', '')
+
+      updateScoreNames()
+    }
 
   }
 
 }
 
+// localStorage.setItem('fifthname', '')
 
 
+
+console.log(window.localStorage)
 

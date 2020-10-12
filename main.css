@@ -35,9 +35,37 @@ body {
   flex-direction: column;
   align-self: center;
   width: 200px;
-  background-color: white;
-  border-radius: 20px;
+  background-color: black;
+  border-radius: 20px 20px 22px 22px;
 }
+
+#firstname, #secondname, #thirdname, #fourthname, #fifthname {
+  text-align: center;
+}
+#firstname {
+  background-color: rgb(228, 212, 72);
+  font-weight: bold;
+}
+
+#secondname {
+  background-color: rgb(192,192,192);
+  font-weight: bold;
+  
+}
+
+#thirdname {
+  background-color: rgb(205, 127, 50);
+  font-weight: bold;
+}
+#fourthname {
+  background-color: rgb(124, 129, 136);
+  font-weight: bold;
+}
+#fifthname {
+  background-color: rgb(67, 68, 64);
+  font-weight: bold;
+}
+
 
 #first,
 #second,
@@ -46,7 +74,7 @@ body {
 #fifth {
   text-align: center;
   font-size: 12px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 #first {
@@ -57,7 +85,7 @@ body {
 
 #second {
   font-size: 17px;
-  background-color: rgb(199, 198, 187);
+  background-color: rgb(192,192,192);
   font-weight: bolder;
 }
 
@@ -66,14 +94,71 @@ body {
   background-color: rgb(205, 127, 50);
 }
 
+#fourth {
+  font-size: 15px;
+  background-color: rgb(124, 129, 136);
+}
+.fifth {
+  text-align: center;
+  font-size: 15px;
+  background-color: rgb(67, 68, 64);
+}
+.fifthActive {
+  border-radius: 0px 0px 10px 10px;
+}
 
 .ranking {
   display: flex;
   flex-direction: column;
-
-
+}
+.name {
+  display: flex;
+flex-direction: row;
+justify-content: center;
 }
 
+.name p {
+  margin: 0px 0px 5px 0px;
+  color: rgb(40, 57, 11);
+}
+.inputname {
+display: flex;
+flex-direction: row;
+justify-content: center;
+padding-bottom: 10px;
+}
+.playername {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  border-top: 2px solid rgb(40, 57, 11);
+  background-color: rgb(148, 192, 0);
+  border-radius: 0px 0px 20px 20px;
+  padding: 5px;
+}
+#playername {
+  width: 70%;
+  border: 2px solid rgb(0, 129, 52);
+  
+}
+
+
+#ok {
+  font-size: 12px;
+  color: white;
+  background-color: rgb(0, 129, 52);
+  border-style: none;
+  width: 20%;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+#ok:hover {
+  cursor: pointer;
+  border: 2px solid black;
+  background-color: rgb(6, 95, 41);
+}
 .screen {
   align-items: center;
   align-self: center;
@@ -205,10 +290,10 @@ h3 {
 .godlike,
 input:focus {
   cursor: pointer;
-  font-size: 20px;
+  font-size: 15px;
   color: black;
   background-color: rgb(85, 152, 191);
-  height: 35px;
+  height: 25px;
   border-style: none;
   border: 1px solid rgb(40, 57, 11);
   outline: none;
@@ -251,8 +336,8 @@ input:focus {
 }
 
 .activeSpeed {
-  border: 4px inset black;
-  font-size: 22px;
+  border: 2px inset black;
+  font-size: 18px;
 }
 
 #start {
