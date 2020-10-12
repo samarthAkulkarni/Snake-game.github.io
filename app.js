@@ -97,7 +97,7 @@ let speed = 100
 
 
 // ! The snake
-let snake = [210, 230, 250, 270, 290, 310, 330, 350, 370, 390]
+let snake = [210, 230, 250]
 
 // ! The field
 const cells = []
@@ -143,7 +143,7 @@ function toggleStartEvent(event) {
 
   if (event.key === ' ') {
 
-    snake = [210, 230, 250, 270, 290, 310, 330, 350, 370, 390]
+    snake = [210, 230, 250]
     scoreTotal = 0
     score.innerHTML = scoreTotal
     direction = 'up'
