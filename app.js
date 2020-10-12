@@ -172,7 +172,7 @@ function toggleStartEvent(event) {
     scoreTotal = 0
     score.innerHTML = scoreTotal
     direction = 'up'
-    stopRareFoodInterval = false
+    
     instr.style.visibility = 'hidden'
     settings.style.visibility = 'hidden'
     keys.style.visibility = 'hidden'
@@ -254,7 +254,7 @@ function startGame() {
     function contact() {
       for (i = 0; i < snake.length; i++) {
         if (snake.indexOf(snake[i]) !== snake.lastIndexOf(snake[i])) {
-          stopRareFoodInterval = true
+          
           clearInterval(interval)
 
           for (var i = 0; i < cells.length; i++) {
@@ -315,9 +315,11 @@ function startGame() {
       } if (snake[0] === randomRareFood) {
 
         cells[randomRareFood].classList.remove('rare')
-        randomRareFood = Math.floor(Math.random() * (width ** 2))
+        // randomRareFood = Math.floor(Math.random() * (width ** 2))
 
         rareFoodEaten = true
+        randomRareFood = undefined
+        generateRareFood()
         // add points
         scoreTotal += activepoints[1]
         score.innerHTML = scoreTotal
@@ -357,66 +359,43 @@ function generateFood() {
 
 // ! Rare food generator if snakes eats the food on the field, wont generate in the snake.
 
-let stopRareFoodInterval = false
 
-
+let randomRareFood = Math.floor(Math.random() * (width ** 2))
 
 setTimeout(() => {
 
-  generateRareFood()
+  cells[randomRareFood].classList.add('rare')
+
 
 }, 5000)
 
 
-let rareFoodEaten = false
-
-let randomRareFood = Math.floor(Math.random() * (width ** 2))
-
-
-
 function generateRareFood() {
 
-  const rareFoodInterval = setInterval(() => {
+  setTimeout(() => {
 
-    // randomRareFood = Math.floor(Math.random() * (width ** 2))
+    randomRareFood = Math.floor(Math.random() * (width ** 2))
+    cells[randomRareFood].classList.add('rare')
+    
+    setTimeout(() => {
 
-    // ! if food is eaten, 
-    if (rareFoodEaten) {
-      cells[randomRareFood].classList.add('rare')
-      rareFoodEaten = false
-
-      setTimeout(() => {
-
+      if (randomRareFood > 0) {
         cells[randomRareFood].classList.remove('rare')
+        randomRareFood = undefined
+        generateRareFood()
+        if (randomRareFood === undefined) {
+          return
 
-      }, 3000)
-
-    }
-    // !! end game
-    if (stopRareFoodInterval) {
-      clearInterval(rareFoodInterval)
-      // ! 
-    }
-    if (!rareFoodEaten) {
-      console.log('not eaten food')
-      cells[randomRareFood].classList.add('rare')
-      rareFoodEaten = false
-
-      setTimeout(() => {
-
-        cells[randomRareFood].classList.remove('rare')
-
-      }, 3000)
-
-    }
-
-
-
-
+        }
+      }
+    }, 3000)
 
 
   }, 10000)
+
 }
+
+
 
 
 // ! Listeners on the arrows, changes the direction
