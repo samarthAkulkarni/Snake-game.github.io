@@ -6,6 +6,11 @@ const fast = document.querySelector('.fast')
 const rapid = document.querySelector('.rapid')
 const godlike = document.querySelector('.godlike')
 
+// ! screen points update
+const navtext1 = document.querySelector('#navtext1')
+const navtext2 = document.querySelector('#navtext2')
+
+
 // ! Leaderboard
 let first = document.querySelector('#first')
 let second = document.querySelector('#second')
@@ -93,6 +98,10 @@ const width = 20
 
 let scoreTotal = 0
 
+// ! Variable points for different speeds
+let activepoints = [1, 3]
+
+// ! spped of the game
 let speed = 100
 
 
@@ -153,6 +162,7 @@ function toggleStartEvent(event) {
     keys.style.visibility = 'hidden'
     inputname.style.visibility = 'hidden'
     fifth.classList.add('fifthActive')
+    rareFoodEaten = false
 
 
     startGame()
@@ -269,7 +279,7 @@ function startGame() {
 
         cells[randomFood].classList.remove('food')
         // add points
-        scoreTotal += 1
+        scoreTotal += activepoints[0]
         score.innerHTML = scoreTotal
 
         // make snake bigger
@@ -285,7 +295,7 @@ function startGame() {
         
         rareFoodEaten = true
         // add points
-        scoreTotal += 5
+        scoreTotal += activepoints[1]
         score.innerHTML = scoreTotal
 
         // make snake bigger
@@ -322,22 +332,26 @@ function generateFood() {
 
 let stopRareFoodInterval = false
 
-generateRareFood()
+
+
+setTimeout(() => {
+
+  generateRareFood()
+
+}, 5000)
+
+
 let rareFoodEaten = false
 
 let randomRareFood = Math.floor(Math.random() * (width ** 2))
 
-setTimeout(() => {
 
-  cells[randomRareFood].classList.add('rare')
-
-}, 10000)
 
 function generateRareFood() {
 
   const rareFoodInterval = setInterval(() => {
 
-    randomRareFood = Math.floor(Math.random() * (width ** 2))
+    // randomRareFood = Math.floor(Math.random() * (width ** 2))
 
     // ! if food is eaten, 
     if (rareFoodEaten) {
@@ -394,11 +408,16 @@ document.addEventListener('keydown', (event) => {
 
 })
 
+
+
 // ! Listeners on the settings 
 normal.classList.add('activeSpeed')
 
 normal.addEventListener('click', () => {
   speed = 100
+  activepoints = [1, 3]
+  navtext1.innerHTML = '1 point'
+  navtext2.innerHTML = '3 points'
   normal.classList.add('activeSpeed')
   fast.classList.remove('activeSpeed')
   rapid.classList.remove('activeSpeed')
@@ -407,6 +426,9 @@ normal.addEventListener('click', () => {
 
 fast.addEventListener('click', () => {
   speed = 70
+  activepoints = [2, 4]
+  navtext1.innerHTML = '2 points'
+  navtext2.innerHTML = '4 points'
   fast.classList.add('activeSpeed')
   normal.classList.remove('activeSpeed')
   rapid.classList.remove('activeSpeed')
@@ -415,6 +437,9 @@ fast.addEventListener('click', () => {
 
 rapid.addEventListener('click', () => {
   speed = 50
+  activepoints = [3, 5]
+  navtext1.innerHTML = '3 points'
+  navtext2.innerHTML = '5 points'
   rapid.classList.add('activeSpeed')
   normal.classList.remove('activeSpeed')
   fast.classList.remove('activeSpeed')
@@ -423,6 +448,9 @@ rapid.addEventListener('click', () => {
 
 godlike.addEventListener('click', () => {
   speed = 20
+  activepoints = [4, 6]
+  navtext1.innerHTML = '4 points'
+  navtext2.innerHTML = '6 points'
   godlike.classList.add('activeSpeed')
   normal.classList.remove('activeSpeed')
   fast.classList.remove('activeSpeed')
@@ -465,7 +493,7 @@ function checkLeaderboard() {
       updateScoreNames()
     } else if (playername === undefined) {
       localStorage.setItem('fourthname', '')
-      // fourthname.innerHTML = undefined
+      
       updateScoreNames()
     }
 

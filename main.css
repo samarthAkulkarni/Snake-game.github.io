@@ -264,11 +264,15 @@ body {
   padding: 0px 3px 0px 3px;
 }
 
-#navtext {
+#navtext1 {
   font-size: 15px;
   align-self: center;
   padding: 0px 5px 0px 3px;
-
+}
+#navtext2 {
+  font-size: 15px;
+  align-self: center;
+  padding: 0px 5px 0px 3px;
 }
 
 .right {
