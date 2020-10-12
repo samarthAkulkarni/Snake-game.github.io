@@ -42,7 +42,7 @@ fifth.innerHTML = localStorage.getItem('fifth')
 // ! shows the names at the start, only if a name is present in local storage.
 updateScoreNames()
 
-fourthname.innerHTML = undefined
+
 
 function updateScoreNames() {
   if (localStorage.getItem('fifthname') !== undefined) {
@@ -528,7 +528,7 @@ function checkLeaderboard() {
 
 }
 
-// localStorage.setItem('fifthname', '')
+// localStorage.setItem('fourthname', '')
 
 
 
