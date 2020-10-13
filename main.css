@@ -1,10 +1,5 @@
-@font-face {
-  font-family: 'Rubik Mono One';
-  src: url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
-}
-
 * {
-  font-family: 'Rubik Mono One', sans-serif;
+  font-family: 'Bangers', sans-serif;
 }
 
 * {
@@ -71,30 +66,30 @@ body {
 
 #firstname {
   font-size: 1.2vw;
-  background-color: rgb(228, 212, 72);
+  background-color: rgb(228, 212, 72, 0.7);
 
   font-weight: bold;
 
 }
 
 #secondname {
-  background-color: rgb(192, 192, 192);
+  background-color: rgb(192, 192, 192, 0.7);
   font-weight: bold;
 
 }
 
 #thirdname {
-  background-color: rgb(205, 127, 50);
+  background-color: rgb(205, 127, 50, 0.7);
   font-weight: bold;
 }
 
 #fourthname {
-  background-color: rgb(124, 129, 136);
+  background-color: rgb(124, 129, 136, 0.7);
   font-weight: bold;
 }
 
 #fifthname {
-  background-color: rgb(67, 68, 64);
+  background-color: rgb(67, 68, 64, 0.7);
   font-weight: bold;
 
 }
@@ -115,30 +110,30 @@ body {
 
 #first {
   font-size: 1.2vw;
-  background-color: rgb(228, 212, 72);
+  background-color: rgb(228, 212, 72, 0.7);
   font-weight: bold;
 }
 
 #second {
   
-  background-color: rgb(192, 192, 192);
+  background-color: rgb(192, 192, 192, 0.7);
   font-weight: bolder;
 }
 
 #third {
   
-  background-color: rgb(205, 127, 50);
+  background-color: rgb(205, 127, 50, 0.7);
 }
 
 #fourth {
   
-  background-color: rgb(124, 129, 136);
+  background-color: rgb(124, 129, 136, 0.7);
 }
 
 .fifth {
   text-align: center;
   
-  background-color: rgb(67, 68, 64);
+  background-color: rgb(67, 68, 64, 0.7);
   border-bottom: 2px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black;
@@ -160,7 +155,7 @@ body {
 }
 
 .name p {
-  font-size: 1.2vw;
+  font-size: 1.5vw;
   font-weight: bold;
   margin: 0px 0px 5px 0px;
   color: rgb(40, 57, 11);
@@ -200,6 +195,7 @@ body {
   font-size: 1vw;
   color: white;
   background-color: rgb(0, 129, 52);
+  border: 2px solid rgb(0, 129, 52);
   border-style: none;
   border-radius: 5px;
   margin-left: 0.5vw;
@@ -233,11 +229,11 @@ body {
 
 .instr {
   color: rgb(40, 57, 11);
-  background-color: rgb(148, 192, 0);
+  background-color: rgb(148, 192, 0, 0.8);
   border-radius: 20px;
-  padding: 5px 10px 5px 10px;
+  padding: 4px 12px 4px 12px;
   /* border: 2px solid black; */
-  margin: 5px;
+  margin: 1.5vh;
   font-size: 25px;
 }
 
@@ -276,7 +272,7 @@ body {
 .nav {
   display: flex;
   flex-direction: column;
-  background-color: rgb(148, 192, 0);
+  background-color: rgb(148, 192, 0, 0.7);
   width: 400px;
   border: 2px solid black;
 }
@@ -289,12 +285,13 @@ body {
   border-bottom: 2px solid rgb(40, 57, 11);
   height: 5vh;
   width: 100%;
-  background-color: rgb(148, 192, 0);
+  background-color: rgb(148, 192, 0, 0.7);
 }
 
 #score {
   color: rgb(40, 57, 11);
   font-size: 2vw;
+  margin-left: 0.2vw;
 
 }
 
@@ -337,7 +334,7 @@ body {
   font-style: italic;
   font-size: 1.2vw;
   align-self: center;
-  padding: 0px 5px 0px 3px;
+  padding: 0px 10px 0px 3px;
   color: rgb(40, 57, 11);
 }
 
@@ -352,6 +349,7 @@ body {
 #logo {
   width: 70%;
   border-radius: 20px;
+  opacity: 0.8;
 }
 
 .settings {
@@ -364,7 +362,7 @@ body {
 }
 
 #h3l {
-  font-size: 1.5vw;
+  font-size: 1.9vw;
   align-self: center;
   text-align: center;
   color: rgb(40, 57, 11);
@@ -380,7 +378,7 @@ body {
 }
 
 #h3s {
-  font-size: 1.5vw;
+  font-size: 1.9vw;
   align-self: center;
   text-align: center;
   color: rgb(40, 57, 11);
@@ -408,43 +406,43 @@ body {
 }
 
 .normal {
-  background-color: rgb(255, 247, 0);
+  background-color: rgb(255, 247, 0, 0.7);
 }
 
 .normal:hover {
   font-size: 1.4vw;
-  background-color: rgb(222, 216, 37);
+  background-color: rgb(222, 216, 37, 0.7);
 
 }
 
 .fast {
-  background-color: rgb(231, 155, 13);
+  background-color: rgb(231, 155, 13, 0.7);
 }
 
 .fast:hover {
   font-size: 1.4vw;
-  background-color: rgb(194, 133, 19);
+  background-color: rgb(194, 133, 19, 0.7);
 }
 
 .rapid {
 
-  background-color: rgb(218, 42, 11);
+  background-color: rgb(218, 42, 11, 0.7);
 }
 
 .rapid:hover {
   font-size: 1.4vw;
-  background-color: rgb(161, 47, 27);
+  background-color: rgb(161, 47, 27, 0.7);
 }
 
 .godlike {
   font-size: 1.2vw;
-  background: radial-gradient(circle, rgba(255, 255, 255, 1) 30%, rgba(46, 133, 235, 1) 100%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 30%, rgba(46, 133, 235, 0.7) 100%);
   border-radius: 0px 0px 20px 20px;
 }
 
 .godlike:hover {
   font-size: 1.4vw;
-  background: radial-gradient(circle, rgba(255, 255, 255, 1) 30%, rgba(5, 19, 34, 1) 100%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 30%, rgba(5, 19, 34, 0.7) 100%);
 }
 
 .activeSpeed {
