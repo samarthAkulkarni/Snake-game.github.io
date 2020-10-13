@@ -10,6 +10,7 @@
 * {
   box-sizing: border-box;
 }
+
 html {
   background-color: black;
 }
@@ -32,13 +33,14 @@ body {
 
 .graphic {
   width: 100%;
-  
+
 }
 
 .graphic:hover {
 
   animation: shake 1s;
 }
+
 .graphicgelatine {
   animation: gelatine 0.7s;
 
@@ -49,7 +51,7 @@ body {
   display: flex;
   flex-direction: column;
   align-self: center;
-  width: 200px;
+  width: 50%;
 
   border-radius: 20px 20px 22px 22px;
 
@@ -60,13 +62,15 @@ body {
 #thirdname,
 #fourthname,
 #fifthname {
+  font-size: 1vw;
   text-align: center;
-  padding-top: 5px;
+  padding-top: 0.3vw;
   border-left: 2px solid black;
   border-right: 2px solid black;
 }
 
 #firstname {
+  font-size: 1.2vw;
   background-color: rgb(228, 212, 72);
 
   font-weight: bold;
@@ -100,9 +104,9 @@ body {
 #second,
 #third,
 #fourth,
-#fifth {
+.fifth {
   text-align: center;
-  font-size: 12px;
+  font-size: 1vw;
   border-bottom: 1px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black;
@@ -110,30 +114,30 @@ body {
 }
 
 #first {
-  font-size: 20px;
+  font-size: 1.2vw;
   background-color: rgb(228, 212, 72);
   font-weight: bold;
 }
 
 #second {
-  font-size: 17px;
+  
   background-color: rgb(192, 192, 192);
   font-weight: bolder;
 }
 
 #third {
-  font-size: 15px;
+  
   background-color: rgb(205, 127, 50);
 }
 
 #fourth {
-  font-size: 15px;
+  
   background-color: rgb(124, 129, 136);
 }
 
 .fifth {
   text-align: center;
-  font-size: 15px;
+  
   background-color: rgb(67, 68, 64);
   border-bottom: 1px solid black;
   border-left: 2px solid black;
@@ -156,6 +160,7 @@ body {
 }
 
 .name p {
+  font-size: 1.2vw;
   font-weight: bold;
   margin: 0px 0px 5px 0px;
   color: rgb(40, 57, 11);
@@ -165,7 +170,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-bottom: 10px;
+  padding-bottom: 1vh;
 
 }
 
@@ -176,7 +181,7 @@ body {
   border-top: 2px solid rgb(40, 57, 11);
   background-color: rgb(148, 192, 0);
   border-radius: 0px 0px 20px 20px;
-  padding: 5px;
+  padding: 0.5vw;
   border-left: 2px solid black;
   border-right: 2px solid black;
   border-bottom: 2px solid black;
@@ -185,18 +190,19 @@ body {
 
 #playername {
   width: 70%;
+  height: 4vh;
   border: 2px solid rgb(0, 129, 52);
 
 }
 
 
 #ok {
-  font-size: 12px;
+  font-size: 1vw;
   color: white;
   background-color: rgb(0, 129, 52);
   border-style: none;
   border-radius: 5px;
-  margin-left: 5px;
+  margin-left: 0.5vw;
 }
 
 #ok:hover {
@@ -212,7 +218,8 @@ body {
   flex: 4;
   flex-direction: column;
   height: 80vh;
-  width: 80vh
+  width: 80vh;
+
 }
 
 .game {
@@ -278,16 +285,16 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: 1vh;
   border-bottom: 2px solid rgb(40, 57, 11);
-  height: 30px;
+  height: 5vh;
   width: 100%;
   background-color: rgb(148, 192, 0);
 }
 
 #score {
   color: rgb(40, 57, 11);
-  font-size: 25px;
+  font-size: 2vw;
 
 }
 
@@ -300,16 +307,17 @@ body {
 }
 
 #foodicon,
-#rareicon, #crateicon {
+#rareicon,
+#crateicon {
   align-self: center;
-  height: 70%;
-  padding: 0px 3px 0px 3px;
+  width: 4.5vh;
+  padding: 0px 0.3vw 0px 0.3vw;
 }
 
 #navtext1 {
   font-weight: bold;
   font-style: italic;
-  font-size: 15px;
+  font-size: 1.2vw;
   align-self: center;
   padding: 0px 5px 0px 3px;
 }
@@ -317,14 +325,15 @@ body {
 #navtext2 {
   font-weight: bolder;
   font-style: italic;
-  font-size: 15px;
+  font-size: 1.2vw;
   align-self: center;
   padding: 0px 5px 0px 3px;
 }
+
 #navtext3 {
   font-weight: bolder;
   font-style: italic;
-  font-size: 15px;
+  font-size: 1.2vw;
   align-self: center;
   padding: 0px 5px 0px 3px;
 }
@@ -334,6 +343,7 @@ body {
   flex-direction: column;
   flex: 3;
   justify-content: space-evenly;
+  height: 100vh;
 }
 
 #logo {
@@ -345,19 +355,19 @@ body {
   display: flex;
   flex-direction: column;
   align-self: center;
-  width: 200px;
+  width: 50%;
   border-radius: 20px 20px 25px 25px;
   border: 2px solid black;
 }
 
 #h3l {
-  font-size: 20px;
+  font-size: 1.5vw;
   align-self: center;
   text-align: center;
   color: rgb(40, 57, 11);
   background-color: rgb(148, 192, 0);
   margin: 0;
-  padding: 10px;
+  padding: 0.7vw;
   width: 100%;
   border-radius: 20px 20px 0px 0px;
   border-bottom: 2px solid black;
@@ -367,13 +377,13 @@ body {
 }
 
 #h3s {
-  font-size: 20px;
+  font-size: 1.5vw;
   align-self: center;
   text-align: center;
   color: rgb(40, 57, 11);
   background-color: rgb(148, 192, 0);
   margin: 0;
-  padding: 10px;
+  padding: 0.7vw;
   width: 100%;
   border-radius: 20px 20px 0px 0px;
   border-bottom: 2px solid black;
@@ -385,9 +395,9 @@ body {
 .rapid,
 .godlike {
   cursor: pointer;
-  font-size: 15px;
+  font-size: 1.2vw;
   color: black;
-  height: 28px;
+  height: 5vh;
   border-style: none;
   border: 1px solid rgb(40, 57, 11);
   outline: none;
@@ -399,7 +409,7 @@ body {
 }
 
 .normal:hover {
-  font-size: 18px;
+  font-size: 1.4vw;
   background-color: rgb(222, 216, 37);
 
 }
@@ -409,7 +419,7 @@ body {
 }
 
 .fast:hover {
-  font-size: 18px;
+  font-size: 1.4vw;
   background-color: rgb(194, 133, 19);
 }
 
@@ -419,31 +429,26 @@ body {
 }
 
 .rapid:hover {
-  font-size: 18px;
+  font-size: 1.4vw;
   background-color: rgb(161, 47, 27);
 }
 
 .godlike {
-
+  font-size: 1.2vw;
   background: radial-gradient(circle, rgba(255, 255, 255, 1) 30%, rgba(46, 133, 235, 1) 100%);
   border-radius: 0px 0px 20px 20px;
 }
 
 .godlike:hover {
-  font-size: 18px;
+  font-size: 1.4vw;
   background: radial-gradient(circle, rgba(255, 255, 255, 1) 30%, rgba(5, 19, 34, 1) 100%);
 }
 
 .activeSpeed {
   border: 3px outset rgb(40, 57, 11);
-  margin: 5px;
-  font-size: 18px;
-  
-}
+  margin: 0.3vw;
+  font-size: 1.4vw;
 
-#start {
-  width: 50px;
-  height: 50px;
 }
 
 
@@ -495,8 +500,47 @@ body {
 }
 
 @keyframes gelatine {
-  from, to { transform: scale(1, 1); }
-  25% { transform: scale(0.9, 1.1); }
-  50% { transform: scale(1.1, 0.9); }
-  75% { transform: scale(0.95, 1.05); }
+
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+
+  .game {
+    height: 300px;
+    width: 300px;
+  }
+
+  .instr {
+    display: none;
+  }
+
+  #keys {
+    display: none;
+  }
+.nav {
+  width: 300px
+}
+.godlike:hover {
+  font-size: 1.2vw;
+}
+.activeSpeed {
+  font-size: 1.2vw;
+}
+
 }

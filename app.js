@@ -490,7 +490,7 @@ document.addEventListener('keydown', (event) => {
 
 })
 
-
+// document.addEventListener('touchstart')
 
 // ! Listeners on the settings 
 normal.classList.add('activeSpeed')
