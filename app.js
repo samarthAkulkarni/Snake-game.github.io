@@ -178,6 +178,9 @@ function toggleStartEvent(event) {
     inputname.style.visibility = 'hidden'
     fifth.classList.add('fifthActive')
 
+    for (var i = 0; i < cells.length; i++) {
+      cells[i].classList.remove('gameover')
+    }
 
 
     startGame()
@@ -265,7 +268,7 @@ function startGame() {
           }
 
           gameover.forEach((over) => {
-            cells[over].classList.add('snake')
+            cells[over].classList.add('gameover')
           })
 
           checkLeaderboard()

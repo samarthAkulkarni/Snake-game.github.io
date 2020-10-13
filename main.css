@@ -246,9 +246,14 @@ body {
   height: 5%;
 
 }
+.gameover {
+  background-color: rgb(0, 0, 0, 0.8);
+  
+}
 
 .snake {
-  background-color: rgb(40, 57, 11);
+  background-color: #369339;
+  border-radius: 0.2vw;
 }
 
 .food {
