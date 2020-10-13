@@ -211,7 +211,7 @@ function startGame() {
       newFrame()
       // contact()
 
-    } else if (direction === 'up' && snake[0] > width) {
+    } else if (direction === 'up' && snake[0] >= width) {
       snake.unshift(snake[0] - width)
       snake.pop()
       newFrame()
@@ -280,7 +280,7 @@ function startGame() {
           audioPlayer.play()
 
           ambience.pause()
-          
+
 
         }
       }
@@ -335,13 +335,13 @@ function startGame() {
         snakegraphic.classList.remove('graphicgelatine')
       }, 2000)
 
-      
+
     }
 
     if (snake[0] === randomCrate) {
 
       cells[randomCrate].classList.remove('crate')
-      
+
 
 
       randomCrate = undefined
@@ -475,7 +475,7 @@ function generateCrate() {
 
 
 // ! Listeners on the arrows, changes the direction
-document.addEventListener('keydown', (event) => {
+window.addEventListener('keydown', (event) => {
   const key = event.key
 
   if (key === 'ArrowUp') {
