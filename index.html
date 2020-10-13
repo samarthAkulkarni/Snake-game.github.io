@@ -8,12 +8,13 @@
   <link rel="icon" href="./img/icon.png">
   <link type="text/css" rel="stylesheet" href="normalize.css" />
   <link rel="stylesheet" href="main.css">
+  
 </head>
 
 <body>
 
   <div class="left">
-    <img id="graphic" src="./img/snake.png">
+    <img class="graphic" src="./img/snake.png">
   </div>
 
   <div class="screen">
@@ -23,10 +24,13 @@
         <div id="score">0</div>
 
         <div class="navright">
+          
           <img id="foodicon" src="./img/beetle.gif">
           <p id="navtext1">1 point</p>
           <img id="rareicon" src="./img/dragonfly.gif">
           <p id="navtext2">3 points</p>
+          <img id="crateicon" src="./img/crate.png">
+          <p id="navtext3">10 points</p>
         </div>
 
       </div>
@@ -34,7 +38,7 @@
     </div>
     <div class="game">
     </div>
-    <p class="instr">Press <span style="color: rgb(235, 227, 227)">[space]</span> to play!</p>
+    <p class="instr">Press <span style="color: rgb(235, 227, 227)">[</span><span style="color: rgb(40, 57, 11)">space</span><span style="color: rgb(235, 227, 227)">]</span> to play!</p>
     <img id="keys" src="./img/keys.png">
   </div>
 
@@ -80,15 +84,15 @@
       <h3 id="h3s">Snake Speed &#128012;</h3>
 
       <button class="normal">Normal</button>
-      <button class="fast">Fast (+1 point)</button>
-      <button class="rapid">Rapid (+2 points)</button>
-      <button class="godlike">Godlike (+3 points)</button>
+      <button class="fast">Fast <span style="font-style:italic">(+1 point)</span></button>
+      <button class="rapid">Rapid <span style="font-style:italic">(+2 points)</span></button>
+      <button class="godlike">Godlike <span style="font-style:italic">(+3 points)</span></button>
 
 
     </div>
 
   </div>
-  
+
   <audio class="audio" src=""></audio>
   <audio loop class="amb" src="./aud/amb.mp3"></audio>
 
