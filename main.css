@@ -699,29 +699,29 @@ body {
   .screen {
     flex: 3;
     width: 100vw;
+    margin-top: 3vh;
+    
     /* background-color: yellow; */
   }
   .game {
     width: 90vw;
-    height: 40vh;
+    height: 90vw;
   }
 
   .right {
     flex: 3;
     height: 600px;
-
   }
-
-  
 
   .nav {
     width: 90vw;
-    height: 3vh;
+    /* height: 3vh; */
     
   }
 
   .navbar {
-    height: 3vh;
+    height: 3.2vh;
+    margin-bottom: 0.5vh;
     
   }
 
@@ -729,7 +729,8 @@ body {
   #rareicon,
   #crateicon {
 
-    width: 2vh;
+    width: 5vw;
+    height: 5vw;
     padding: 0px 0.3vw 0px 0.3vw;
   }
 
@@ -740,7 +741,7 @@ body {
   }
 
   #score {
-    font-size: 3.8vw;
+    font-size: 6vw;
   }
 
 
