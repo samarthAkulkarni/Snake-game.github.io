@@ -21,13 +21,16 @@ body {
 
 .left {
   display: flex;
+  flex-direction: column;
   flex: 3;
   justify-content: center;
 
 }
 
+
 .graphic {
   width: 100%;
+  align-self: center;
 
 }
 
@@ -355,11 +358,20 @@ body {
   /* background-color: red; */
 
 }
+.logoset {
+  display: flex;
+  flex-direction: row;
+}
 
 #logo {
   width: 70%;
   border-radius: 20px;
   opacity: 0.8;
+}
+#mobileicon {
+  align-self: center;
+  width: 5vw;
+  opacity: 0.7;
 }
 
 .settings {
@@ -499,7 +511,6 @@ body {
 
 #up {
   margin-top: 0.5vh;
-
 }
 
 #left,
@@ -530,19 +541,17 @@ body {
   height: 6vh;
   border-radius: 30px;
   margin-top: 1vh;
-
-
-
 }
 
-.mobilenav {
+/* .mobilenav {
   display: flex;
   flex-direction: row;
-}
+} */
 
 #rotate {
   display: none;
 }
+
 
 
 @keyframes shake {
@@ -708,8 +717,11 @@ body {
   }
 
   .left {
+    display: flex;
+    
     flex: 0;
   }
+
 
   .graphic {
     display: none;
@@ -769,6 +781,11 @@ body {
   #logo {
     align-self: center;
     width: 50vw;
+  }
+
+  .logoset {
+    justify-content: center;
+    
   }
 
   .instr {
@@ -895,6 +912,9 @@ body {
   #rotate {
     display: none;
   }
+  #mobileicon {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 800px) and (orientation: landscape) {
@@ -902,8 +922,8 @@ body {
 
   .left {
     display: none;
-    
   }
+
 
   .screen {
     display: none;
