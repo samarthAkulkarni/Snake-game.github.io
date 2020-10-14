@@ -700,7 +700,7 @@ body {
 
   .screen {
     flex: 3;
-    width: 100vw;
+    width: 90vw;
     margin-top: 3vh;
 
     /* background-color: yellow; */
@@ -732,19 +732,19 @@ body {
   #rareicon,
   #crateicon {
 
-    width: 5vw;
-    height: 5vw;
+    width: 2.7vw;
+    height: 2.7vw;
     padding: 0px 0.3vw 0px 0.3vw;
   }
 
   #navtext1,
   #navtext2,
   #navtext3 {
-    font-size: 3vw;
+    font-size: 2.1vw;
   }
 
   #score {
-    font-size: 6vw;
+    font-size: 2.8;
   }
 
 
@@ -863,7 +863,7 @@ body {
   .activeSpeed {
     border: 3px outset rgb(40, 57, 11);
     margin: 0.3vw;
-    font-size: 1.4vw;
+    font-size: 4.5vw;
 
   }
   .normal:hover, .fast:hover, .rapid:hover, .godlike:hover {
