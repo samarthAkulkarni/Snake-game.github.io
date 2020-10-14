@@ -467,7 +467,7 @@ body {
   display: none;
   align-self: center;
   flex-direction: column;
-  
+
   width: 40vw;
 }
 
@@ -477,12 +477,12 @@ body {
   justify-content: center;
   align-self: center;
   width: 100vw;
-  
+
 }
 
 #up,
 #down {
-  font-size: 9vw;
+  font-size: 12vw;
   align-self: center;
   width: 60vw;
   height: 10vh;
@@ -498,7 +498,7 @@ body {
 
 #left,
 #right {
-  font-size: 9vw;
+  font-size: 12vw;
   width: 40vw;
   height: 10vh;
   border-radius: 10px;
@@ -517,6 +517,7 @@ body {
   height: 6vh;
   border-radius: 30px;
   margin-top: 1vh;
+  
 
 
 }
@@ -685,6 +686,7 @@ body {
     flex-direction: column;
     width: 100vw;
     height: 150vh;
+    background-image: url("./img/bgmobile.jpg");
 
   }
 
@@ -700,9 +702,10 @@ body {
     flex: 3;
     width: 100vw;
     margin-top: 3vh;
-    
+
     /* background-color: yellow; */
   }
+
   .game {
     width: 90vw;
     height: 90vw;
@@ -715,14 +718,14 @@ body {
 
   .nav {
     width: 90vw;
-    /* height: 3vh; */
-    
+    height: 4vh;
+
   }
 
   .navbar {
-    height: 3.2vh;
-    margin-bottom: 0.5vh;
-    
+    height: 3vh;
+    margin-bottom: 0.3vh;
+
   }
 
   #foodicon,
@@ -855,6 +858,16 @@ body {
     border-style: none;
     border-radius: 5px;
     margin-left: 0.5vw;
+  }
+
+  .activeSpeed {
+    border: 3px outset rgb(40, 57, 11);
+    margin: 0.3vw;
+    font-size: 1.4vw;
+
+  }
+  .normal:hover, .fast:hover, .rapid:hover, .godlike:hover {
+    font-size: 4.5vw;
   }
 
 }

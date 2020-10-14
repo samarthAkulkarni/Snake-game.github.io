@@ -284,7 +284,7 @@ function startGame() {
           audioPlayer.play()
 
           ambience.pause()
-
+          start.style.visibility = 'visible'
 
         }
       }
@@ -503,7 +503,7 @@ const right = document.querySelector('#right')
 
 const start = document.querySelector('#start')
 
-// ! touch listeners for mobile
+// ! Listeners for mobile
 up.addEventListener('click', () => {
   direction = 'up'
 })
@@ -534,6 +534,7 @@ start.addEventListener('click', () => {
   for (var i = 0; i < cells.length; i++) {
     cells[i].classList.remove('gameover')
   }
+  start.style.visibility = 'hidden'
   startGame()
 })
 
