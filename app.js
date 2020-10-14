@@ -164,6 +164,7 @@ let direction = 'up'
 function toggleStartEvent(event) {
 
   if (event.key === ' ') {
+    
     ambience.play()
     audioPlayer.src = './aud/start.mp3'
     audioPlayer.play()
@@ -495,12 +496,12 @@ window.addEventListener('keydown', (event) => {
 
 
 
-const up = document.addEventListener('#up')
-const down = document.addEventListener('#down')
-const left = document.addEventListener('#left')
-const right = document.addEventListener('#right')
+const up = document.querySelector('#up')
+const down = document.querySelector('#down')
+const left = document.querySelector('#left')
+const right = document.querySelector('#right')
 
-const start = document.addEventListener('#start')
+const start = document.querySelector('#start')
 
 // ! touch listeners for mobile
 up.addEventListener('click', () => {
@@ -516,6 +517,23 @@ right.addEventListener('click', () => {
   direction = 'right'
 })
 start.addEventListener('click', () => {
+  ambience.play()
+  audioPlayer.src = './aud/start.mp3'
+  audioPlayer.play()
+  snake = [210, 230, 250]
+  scoreTotal = 0
+  score.innerHTML = scoreTotal
+  direction = 'up'
+
+  instr.style.visibility = 'hidden'
+  settings.style.visibility = 'hidden'
+  keys.style.visibility = 'hidden'
+  inputname.style.visibility = 'hidden'
+  fifth.classList.add('fifthActive')
+
+  for (var i = 0; i < cells.length; i++) {
+    cells[i].classList.remove('gameover')
+  }
   startGame()
 })
 
