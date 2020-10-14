@@ -493,7 +493,31 @@ window.addEventListener('keydown', (event) => {
 
 })
 
-// document.addEventListener('touchstart')
+
+
+const up = document.addEventListener('#up')
+const down = document.addEventListener('#down')
+const left = document.addEventListener('#left')
+const right = document.addEventListener('#right')
+
+const start = document.addEventListener('#start')
+
+// ! touch listeners for mobile
+up.addEventListener('touchstart', () => {
+  direction = 'up'
+})
+down.addEventListener('touchstart', () => {
+  direction = 'down'
+})
+left.addEventListener('touchstart', () => {
+  direction = 'left'
+})
+right.addEventListener('touchstart', () => {
+  direction = 'right'
+})
+start.addEventListener('touchstart', () => {
+  startGame()
+})
 
 // ! Listeners on the settings 
 normal.classList.add('activeSpeed')
