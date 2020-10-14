@@ -6,6 +6,9 @@ const fast = document.querySelector('.fast')
 const rapid = document.querySelector('.rapid')
 const godlike = document.querySelector('.godlike')
 
+// ! Space bar div
+const instr = document.querySelector('.instr')
+
 // ! Audio & ambience
 const ambience = document.querySelector('.amb')
 const audioPlayer = document.querySelector('audio')
@@ -55,10 +58,8 @@ third.innerHTML = localStorage.getItem('third')
 fourth.innerHTML = localStorage.getItem('fourth')
 fifth.innerHTML = localStorage.getItem('fifth')
 
-// ! shows the names at the start, only if a name is present in local storage.
+// ! Shows the names at the start, only if a name is present in local storage.
 updateScoreNames()
-
-
 
 function updateScoreNames() {
   if (localStorage.getItem('fifthname') !== undefined) {
@@ -80,17 +81,6 @@ function updateScoreNames() {
 }
 
 
-// ! ok button listener
-ok.addEventListener('click', () => {
-  audioPlayer.src = './aud/click.mp3'
-  audioPlayer.play()
-  playername = playernameinput.value
-  playername = playername.charAt(0).toUpperCase() + playername.slice(1)
-  inputname.style.visibility = 'hidden'
-  fifth.classList.add('fifthActive')
-
-})
-
 // ! Show the scores at the start
 first.innerHTML = localStorage.getItem('first')
 second.innerHTML = localStorage.getItem('second')
@@ -98,41 +88,42 @@ third.innerHTML = localStorage.getItem('third')
 fourth.innerHTML = localStorage.getItem('fourth')
 fifth.innerHTML = localStorage.getItem('fifth')
 
-// ! Space bar div
-const instr = document.querySelector('.instr')
+// ! OK button listener
+ok.addEventListener('click', () => {
+  audioPlayer.src = './aud/click.mp3'
+  audioPlayer.play()
+  playername = playernameinput.value
+  playername = playername.charAt(0).toUpperCase() + playername.slice(1)
+  inputname.style.visibility = 'hidden'
+  fifth.classList.add('fifthActive')
+})
 
 
 // ! Game variables
 const game = document.querySelector('.game')
-let score = document.querySelector('#score')
-
 const width = 20
 
+// ! Score variables
+let score = document.querySelector('#score')
 let scoreTotal = 0
 
-
-// ! Variable points for different speeds
+// ! Variable points for given speed selected
 let activepoints = [1, 3, 10]
 
-// ! spped of the game
+// ! Spped of the game (interval)
 let speed = 100
-
 
 // ! The snake
 let snake = [210, 230, 250]
 
-// ! The field
+// ! The field of cells
 const cells = []
 
-
-// ! Creating the game field
+// ! Creating the game field, generating cells
 for (let i = 0; i < width ** 2; i++) {
-  // Create an element
   const div = document.createElement('div')
   div.classList.add('cell')
   game.appendChild(div)
-  // div.innerHTML = i
-  // Push the div to my array of cells
   cells.push(div)
 }
 
@@ -141,8 +132,7 @@ snake.forEach((body) => {
   cells[body].classList.add('snake')
 })
 
-
-// ! Creating a new frame each time the interval is played
+// ! Creating a new frame each time the snake moves
 function newFrame() {
 
   for (var i = 0; i < cells.length; i++) {
@@ -156,15 +146,15 @@ function newFrame() {
 
 }
 
-// ! Snake direction
+// ! Snake active direction
 let direction = 'up'
 
 
-// ! Function to check for spacebar input
+// ! Function to check for spacebar input, and start the game
 function toggleStartEvent(event) {
 
   if (event.key === ' ') {
-    
+
     ambience.play()
     audioPlayer.src = './aud/start.mp3'
     audioPlayer.play()
@@ -188,11 +178,8 @@ function toggleStartEvent(event) {
   }
 }
 
-
-// ! Add an event listener to window
+// ! Add an event listener to window, needed to start the game
 window.addEventListener('keypress', toggleStartEvent)
-
-
 
 // ! Starting the game
 function startGame() {
@@ -253,16 +240,14 @@ function startGame() {
 
     }
 
-
     contact()
 
-    // ! Checks snake for contact
+    // ! Checks snake for contact with itself
     function contact() {
       for (i = 0; i < snake.length; i++) {
         if (snake.indexOf(snake[i]) !== snake.lastIndexOf(snake[i])) {
 
           clearInterval(interval)
-
 
           for (var i = 0; i < cells.length; i++) {
             cells[i].classList.remove('snake', 'food', 'rare', 'crate')
@@ -288,10 +273,7 @@ function startGame() {
 
         }
       }
-
-
     }
-
 
     //! The food logic
     if (snake[0] === randomFood) {
@@ -311,13 +293,9 @@ function startGame() {
       // run code to generate more
       generateFood()
 
-
-
     } if (snake[0] === randomRareFood) {
 
       cells[randomRareFood].classList.remove('rare')
-      // randomRareFood = Math.floor(Math.random() * (width ** 2))
-
 
       randomRareFood = undefined
       generateRareFood()
@@ -339,21 +317,20 @@ function startGame() {
         snakegraphic.classList.remove('graphicgelatine')
       }, 2000)
 
-
     }
+
+    // ! crate contact logic
 
     if (snake[0] === randomCrate) {
 
       cells[randomCrate].classList.remove('crate')
-
-
 
       randomCrate = undefined
       generateCrate()
       // add points
       scoreTotal += activepoints[2]
       score.innerHTML = scoreTotal
-
+      // play sounds
       audioPlayer.src = './aud/crate.mp3'
       audioPlayer.play()
 
@@ -370,14 +347,9 @@ function startGame() {
 
     }
 
-
-
   }, speed)
 
 }
-
-
-
 
 // ! Adding the food at the start of the game
 let randomFood = Math.floor(Math.random() * (width ** 2))
@@ -397,7 +369,7 @@ function generateFood() {
 
 
 
-// ! Rare food generator if snakes eats the food on the field, wont generate in the snake.
+// ! Rare food generator starts when snake eats the first rare food.
 
 
 let randomRareFood = Math.floor(Math.random() * (width ** 2))
@@ -408,7 +380,6 @@ setTimeout(() => {
 
 
 }, 5000)
-
 
 function generateRareFood() {
 
@@ -430,15 +401,11 @@ function generateRareFood() {
       }
     }, 3000)
 
-
   }, 10000)
 
 }
 
-
-// ! Crate generator
-
-// let crate = []
+// ! Crate generator when snake eats the first crate.
 
 let randomCrate = Math.floor(Math.random() * (width ** 2))
 
@@ -475,10 +442,7 @@ function generateCrate() {
 
 }
 
-
-
-
-// ! Listeners on the arrows, changes the direction
+// ! Listeners on the arrows, changes the direction of the snake
 window.addEventListener('keydown', (event) => {
   const key = event.key
 
@@ -495,12 +459,11 @@ window.addEventListener('keydown', (event) => {
 })
 
 
-
+// ! Snake buttons for mobile
 const up = document.querySelector('#up')
 const down = document.querySelector('#down')
 const left = document.querySelector('#left')
 const right = document.querySelector('#right')
-
 const start = document.querySelector('#start')
 
 // ! Listeners for mobile
@@ -697,8 +660,6 @@ function checkLeaderboard() {
 }
 
 // localStorage.setItem('fourthname', '')
-
-
 
 console.log(window.localStorage)
 
