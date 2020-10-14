@@ -480,31 +480,42 @@ body {
 
 #up,
 #down {
-  font-size: 1.5vw;
+  font-size: 7vw;
   align-self: center;
   width: 60vw;
-  height: 5vh;
+  height: 7vh;
   border-radius: 10px;
-  background-color: crimson;
+  background-color: rgb(0, 129, 52);
+  border: 1px solid white;
+}
+
+#up {
+  margin-top: 0.5vh;
+
 }
 
 #left,
 #right {
-  font-size: 1.5vw;
+  font-size: 7vw;
   width: 40vw;
-  height: 5vh;
+  height: 7vh;
   border-radius: 10px;
-  background-color: cyan;
+  background-color: rgb(184, 199, 59);
+  border: 1px solid white;
 }
 
 
 #start {
-  font-size: 1.5vw;
+  background-color: rgba(253, 22, 22, 1);
+  border-color: white;
+  align-self: center;
+  font-size: 2.7vw;
   width: 10vw;
   height: 5vh;
-  
-  margin-left: 35vw;
-  margin-top: 0px;
+  border-radius: 50%;
+  margin-top: 1vh;
+
+
 }
 
 .mobilenav {
@@ -678,12 +689,17 @@ body {
   }
 
   .graphic {
-   
+
     width: 15vw;
   }
 
   .screen {
+    
     width: 100vw;
+  }
+
+  .right {
+    flex: 1
   }
 
   .game {
@@ -735,6 +751,13 @@ body {
     display: flex;
   }
 
+  #playername {
+    width: 70%;
+    height: 4vh;
+    border: 2px solid rgb(0, 129, 52);
+
+  }
+
 
   #h3l {
     font-size: 6vw;
@@ -751,6 +774,7 @@ body {
     border-left: 2px solid black;
     border-right: 2px solid black;
   }
+
   #h3s {
     font-size: 6vw;
     align-self: center;
@@ -762,19 +786,20 @@ body {
     width: 100%;
     border-radius: 20px 20px 0px 0px;
     border-bottom: 2px solid black;
-  
-  }
-.normal,
-.fast,
-.rapid,
-.godlike {
-  cursor: pointer;
-  font-size: 2.5vw;
-  color: black;
-  height: 3vh;
-  border-style: none;
-  border: 1px solid rgb(40, 57, 11);
-  outline: none;
 
-}
+  }
+
+  .normal,
+  .fast,
+  .rapid,
+  .godlike {
+    cursor: pointer;
+    font-size: 2.5vw;
+    color: black;
+    height: 3vh;
+    border-style: none;
+    border: 1px solid rgb(40, 57, 11);
+    outline: none;
+
+  }
 }
