@@ -503,19 +503,19 @@ const right = document.addEventListener('#right')
 const start = document.addEventListener('#start')
 
 // ! touch listeners for mobile
-up.addEventListener('touchstart', () => {
+up.addEventListener('click', () => {
   direction = 'up'
 })
-down.addEventListener('touchstart', () => {
+down.addEventListener('click', () => {
   direction = 'down'
 })
-left.addEventListener('touchstart', () => {
+left.addEventListener('click', () => {
   direction = 'left'
 })
-right.addEventListener('touchstart', () => {
+right.addEventListener('click', () => {
   direction = 'right'
 })
-start.addEventListener('touchstart', () => {
+start.addEventListener('click', () => {
   startGame()
 })
 
