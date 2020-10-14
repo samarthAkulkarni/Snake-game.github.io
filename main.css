@@ -492,7 +492,8 @@ body {
   margin: 1vw;
 }
 
-#up:hover, #down:hover {
+#up:hover,
+#down:hover {
   background-color: rgb(2, 100, 41);
 }
 
@@ -512,7 +513,9 @@ body {
   border: 1px solid white;
   margin: 1vw;
 }
-#left:hover, #right:hover {
+
+#left:hover,
+#right:hover {
   background-color: rgb(154, 167, 46);
 }
 
@@ -889,31 +892,32 @@ body {
     font-size: 6vw;
   }
 
+  #rotate {
+    display: none;
+  }
 }
 
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: landscape) { 
-  
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
 
-    .left {
-      display: none;
-      background-color: red;
-    }
-    .screen {
-      display: none;
-    }
-    .right {
-      display: none;
-    }
 
-    #rotate {
-      display: block;
-      align-self: center;
-      width: 20vw;
-      height: 20vw;
-    }
-  
+  .left {
+    display: none;
+    background-color: red;
+  }
+
+  .screen {
+    display: none;
+  }
+
+  .right {
+    display: none;
+  }
+
+  #rotate {
+    display: block;
+    align-self: center;
+    width: 20vw;
+    height: 20vw;
+  }
+
 }
