@@ -702,9 +702,10 @@ body {
   }
 
   .screen {
-    flex: none;
+    flex: 3.5;
     width: 100vw;
     margin-top: 3vh;
+    height: 100vh;
 
     /* background-color: yellow; */
   }
@@ -716,7 +717,7 @@ body {
 
   .right {
     
-    margin-top: 10vh;
+    margin-top: 5vh;
     
   }
 
