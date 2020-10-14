@@ -485,7 +485,7 @@ body {
   font-size: 12vw;
   align-self: center;
   width: 60vw;
-  height: 10vh;
+  height: 9vh;
   border-radius: 10px;
   background-color: rgb(0, 129, 52);
   border: 1px solid white;
@@ -502,7 +502,7 @@ body {
   font-size: 12vw;
   align-self: center;
   width: 50vw;
-  height: 10vh;
+  height: 9vh;
   border-radius: 10px;
   background-color: rgb(184, 199, 59);
   border: 1px solid white;
@@ -688,7 +688,7 @@ body {
   body {
     flex-direction: column;
     width: 100vw;
-    height: 170vh;
+    height: 190vh;
     background-image: url("./img/bgmobile.jpg");
 
   }
@@ -736,19 +736,19 @@ body {
   #rareicon,
   #crateicon {
 
-    width: 2.7vw;
-    height: 2.7vw;
+    width: 4vw;
+    height: 4vw;
     padding: 0px 0.3vw 0px 0.3vw;
   }
 
   #navtext1,
   #navtext2,
   #navtext3 {
-    font-size: 2.1vw;
+    font-size: 3vw;
   }
 
   #score {
-    font-size: 3vw;
+    font-size: 5vw;
   }
 
 
