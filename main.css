@@ -499,6 +499,7 @@ body {
 #left,
 #right {
   font-size: 12vw;
+  align-self: center;
   width: 40vw;
   height: 10vh;
   border-radius: 10px;
@@ -685,7 +686,7 @@ body {
   body {
     flex-direction: column;
     width: 100vw;
-    height: 150vh;
+    height: 170vh;
     background-image: url("./img/bgmobile.jpg");
 
   }
@@ -699,11 +700,11 @@ body {
   }
 
   .screen {
-    flex: 3;
+    flex: none;
     width: 90vw;
     margin-top: 3vh;
 
-    /* background-color: yellow; */
+    background-color: yellow;
   }
 
   .game {
@@ -712,7 +713,7 @@ body {
   }
 
   .right {
-    flex: 3;
+    flex: none;
     height: 600px;
   }
 
@@ -744,7 +745,7 @@ body {
   }
 
   #score {
-    font-size: 2.8;
+    font-size: 3vw;
   }
 
 
@@ -808,9 +809,9 @@ body {
   .rapid,
   .godlike {
     cursor: pointer;
-    font-size: 4vw;
+    font-size: 5vw;
     color: black;
-    height: 3vh;
+    height: 5vh;
     border-style: none;
     border: 1px solid rgb(40, 57, 11);
     outline: none;
@@ -861,13 +862,13 @@ body {
   }
 
   .activeSpeed {
-    border: 3px outset rgb(40, 57, 11);
+    border: 6px outset rgb(40, 57, 11);
     margin: 0.3vw;
     font-size: 4.5vw;
 
   }
   .normal:hover, .fast:hover, .rapid:hover, .godlike:hover {
-    font-size: 4.5vw;
+    font-size: 6vw;
   }
 
 }
