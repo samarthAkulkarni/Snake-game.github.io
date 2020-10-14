@@ -351,7 +351,8 @@ body {
   flex-direction: column;
   flex: 3;
   justify-content: space-evenly;
-  height: 100vh;
+  /* background-color: red; */
+
 }
 
 #logo {
@@ -681,25 +682,29 @@ body {
   body {
     flex-direction: column;
     width: 100vw;
+    height: 150vh;
+
 
   }
 
   .left {
-    flex: 1;
+    flex: 0;
   }
 
   .graphic {
-
-    width: 15vw;
+    display: none;
   }
 
   .screen {
-    
+    flex: 3;
     width: 100vw;
+    /* background-color: yellow; */
   }
 
   .right {
-    flex: 1
+    flex: 3;
+    height: 600px;
+
   }
 
   .game {
@@ -730,13 +735,13 @@ body {
   }
 
   #score {
-    font-size: 6vw;
+    font-size: 7vw;
   }
 
 
   #logo {
     align-self: center;
-    width: 30vw;
+    width: 50vw;
   }
 
   .instr {
@@ -794,7 +799,7 @@ body {
   .rapid,
   .godlike {
     cursor: pointer;
-    font-size: 2.5vw;
+    font-size: 4vw;
     color: black;
     height: 3vh;
     border-style: none;
