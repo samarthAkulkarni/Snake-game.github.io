@@ -467,16 +467,16 @@ const right = document.querySelector('#right')
 const start = document.querySelector('#start')
 
 // ! Listeners for mobile
-up.addEventListener('click', () => {
+up.addEventListener('mousedown', () => {
   direction = 'up'
 })
-down.addEventListener('click', () => {
+down.addEventListener('mousedown', () => {
   direction = 'down'
 })
-left.addEventListener('click', () => {
+left.addEventListener('mousedown', () => {
   direction = 'left'
 })
-right.addEventListener('click', () => {
+right.addEventListener('mousedown', () => {
   direction = 'right'
 })
 start.addEventListener('click', () => {

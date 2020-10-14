@@ -482,10 +482,10 @@ body {
 
 #up,
 #down {
-  font-size: 12vw;
+  font-size: 8vw;
   align-self: center;
   width: 60vw;
-  height: 7vh;
+  height: 6vh;
   border-radius: 10px;
   background-color: rgb(0, 129, 52);
   border: 1px solid white;
@@ -504,10 +504,10 @@ body {
 
 #left,
 #right {
-  font-size: 12vw;
+  font-size: 8vw;
   align-self: center;
   width: 50vw;
-  height: 7vh;
+  height: 6vh;
   border-radius: 10px;
   background-color: rgb(184, 199, 59);
   border: 1px solid white;
@@ -697,7 +697,7 @@ body {
 }
 
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 850px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+@media only screen and (max-width: 600px) and (orientation: portrait) {
 
   body {
     flex-direction: column;
@@ -897,12 +897,12 @@ body {
   }
 }
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+@media only screen and (max-width: 800px) and (orientation: landscape) {
 
 
   .left {
     display: none;
-    background-color: red;
+    
   }
 
   .screen {
@@ -921,3 +921,4 @@ body {
   }
 
 }
+
