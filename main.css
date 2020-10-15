@@ -192,17 +192,20 @@ body {
 }
 
 .screen {
-  align-items: center;
-  align-self: center;
   display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding-top: 5vh;
   flex: 4;
   flex-direction: column;
-  height: 80vmin;
-  width: 80vmin;
+  height: 100vh;
+  width: 80vw;
 }
 
 .game {
   display: flex;
+  align-self: center;
   flex-direction: row;
   flex-wrap: wrap;
   height: 67vmin;
@@ -537,8 +540,9 @@ body {
   .screen {
     flex: 3.5;
     width: 100vw;
-    margin-top: 3vh;
+    justify-content: flex-start;
     height: 100vh;
+    padding-top: 2vh;
   }
 
   .game {
