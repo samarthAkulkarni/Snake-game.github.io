@@ -189,54 +189,45 @@ function startGame() {
   const interval = setInterval(() => {
 
 
-
     if (direction === 'right' && (snake[0] % width !== width - 1)) {
       snake.unshift(snake[0] + 1)
       snake.pop()
       newFrame()
-      // contact()    
 
     } else if (direction === 'right' && (snake[0] % width === width - 1)) {
       snake.unshift(snake[0] - 19)
       snake.pop()
       newFrame()
-      // contact()
 
     } else if (direction === 'up' && snake[0] >= width) {
       snake.unshift(snake[0] - width)
       snake.pop()
       newFrame()
-      // contact()
 
     } else if (direction === 'up' && snake[0] < width) {
       snake.unshift(snake[0] + 380)
       snake.pop()
       newFrame()
-      // contact()
 
     } else if (direction === 'down' && snake[0] < 380) {
       snake.unshift(snake[0] + width)
       snake.pop()
       newFrame()
-      // contact()
 
     } else if (direction === 'down' && snake[0] > 379) {
       snake.unshift(snake[0] - 380)
       snake.pop()
       newFrame()
-      // contact()
 
     } else if (direction === 'left' && snake[0] % width !== 0) {
       snake.unshift(snake[0] - 1)
       snake.pop()
       newFrame()
-      // contact()
 
     } else if (direction === 'left' && snake[0] % width === 0) {
       snake.unshift(snake[0] + 19)
       snake.pop()
       newFrame()
-      // contact()
 
     }
 
@@ -319,7 +310,7 @@ function startGame() {
 
     }
 
-    // ! crate contact logic
+    // ! Crate contact logic
 
     if (snake[0] === randomCrate) {
 
@@ -368,18 +359,15 @@ function generateFood() {
 }
 
 
-
 // ! Rare food generator starts when snake eats the first rare food.
-
-
 let randomRareFood = Math.floor(Math.random() * (width ** 2))
 
 setTimeout(() => {
 
   cells[randomRareFood].classList.add('rare')
 
-
 }, 5000)
+
 
 function generateRareFood() {
 
@@ -565,7 +553,6 @@ godlike.addEventListener('click', () => {
 function checkLeaderboard() {
   let checkHighScore = scoreTotal
 
-
   if (checkHighScore < localStorage.getItem('fourth') && checkHighScore > localStorage.getItem('fifth')) {
 
     localStorage.setItem('fifth', scoreTotal)
@@ -659,10 +646,10 @@ function checkLeaderboard() {
 
 }
 
-// localStorage.setItem('fourthname', '')
 
 console.log(window.localStorage)
 
+// ! Gameover splash screen
 const gameover = [101, 102, 103, 104, 121, 141, 161, 181, 182,
   183, 184, 164, 144, 143, 186, 166, 146, 126, 107, 108, 129,
   149, 169, 189, 147, 148, 191, 171, 151, 131, 133, 111, 132,

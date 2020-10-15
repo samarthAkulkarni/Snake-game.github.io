@@ -24,25 +24,19 @@ body {
   flex-direction: column;
   flex: 3;
   justify-content: center;
-
 }
-
 
 .graphic {
   width: 100%;
   align-self: center;
-
 }
 
 .graphic:hover {
-
   animation: shake 1s;
 }
 
 .graphicgelatine {
   animation: gelatine 0.7s;
-
-
 }
 
 .leaderboard {
@@ -50,9 +44,7 @@ body {
   flex-direction: column;
   align-self: center;
   width: 50%;
-
   border-radius: 20px 20px 22px 22px;
-
 }
 
 #firstname,
@@ -70,15 +62,12 @@ body {
 #firstname {
   font-size: 1.2vw;
   background-color: rgb(228, 212, 72, 0.7);
-
   font-weight: bold;
-
 }
 
 #secondname {
   background-color: rgb(192, 192, 192, 0.7);
   font-weight: bold;
-
 }
 
 #thirdname {
@@ -94,7 +83,6 @@ body {
 #fifthname {
   background-color: rgb(67, 68, 64, 0.7);
   font-weight: bold;
-
 }
 
 
@@ -108,7 +96,6 @@ body {
   border-bottom: 1px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black;
-
 }
 
 #first {
@@ -118,7 +105,6 @@ body {
 }
 
 #second {
-
   background-color: rgb(192, 192, 192, 0.7);
   font-weight: bolder;
 }
@@ -129,13 +115,11 @@ body {
 }
 
 #fourth {
-
   background-color: rgb(124, 129, 136, 0.7);
 }
 
 .fifth {
   text-align: center;
-
   background-color: rgb(67, 68, 64, 0.7);
   border-bottom: 2px solid black;
   border-left: 2px solid black;
@@ -169,7 +153,6 @@ body {
   flex-direction: row;
   justify-content: center;
   padding-bottom: 1vh;
-
 }
 
 .playername {
@@ -183,16 +166,13 @@ body {
   border-left: 2px solid black;
   border-right: 2px solid black;
   border-bottom: 2px solid black;
-
 }
 
 #playername {
   width: 70%;
   height: 4vh;
   border: 2px solid rgb(0, 129, 52);
-
 }
-
 
 #ok {
   font-size: 1vw;
@@ -226,12 +206,9 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
   height: 67vmin;
   width: 67vmin;
-
   border: 2px solid rgb(40, 57, 11);
-
 }
 
 .instr {
@@ -250,12 +227,10 @@ body {
 .cell {
   width: 5%;
   height: 5%;
-
 }
 
 .gameover {
   background-color: rgb(0, 0, 0, 0.8);
-
 }
 
 .snake {
@@ -304,7 +279,6 @@ body {
   color: rgb(40, 57, 11);
   font-size: 2vw;
   margin-left: 0.2vw;
-
 }
 
 .navright {
@@ -312,7 +286,6 @@ body {
   display: flex;
   flex-direction: row;
   height: 100%;
-
 }
 
 #foodicon,
@@ -355,8 +328,6 @@ body {
   flex-direction: column;
   flex: 3;
   justify-content: space-evenly;
-  /* background-color: red; */
-
 }
 .logoset {
   display: flex;
@@ -410,7 +381,6 @@ body {
   width: 100%;
   border-radius: 20px 20px 0px 0px;
   border-bottom: 2px solid black;
-
 }
 
 .normal,
@@ -424,7 +394,6 @@ body {
   border-style: none;
   border: 1px solid rgb(40, 57, 11);
   outline: none;
-
 }
 
 .normal {
@@ -434,7 +403,6 @@ body {
 .normal:hover {
   font-size: 1.4vw;
   background-color: rgb(222, 216, 37, 0.7);
-
 }
 
 .fast {
@@ -471,15 +439,14 @@ body {
   border: 3px outset rgb(40, 57, 11);
   margin: 0.3vw;
   font-size: 1.4vw;
-
 }
 
-.controls {
+/* Mobile controls */
 
+.controls {
   display: none;
   align-self: center;
   flex-direction: column;
-
   width: 40vw;
 }
 
@@ -489,7 +456,6 @@ body {
   justify-content: center;
   align-self: center;
   width: 100vw;
-
 }
 
 #up,
@@ -530,7 +496,6 @@ body {
   background-color: rgb(154, 167, 46);
 }
 
-
 #start {
   background-color: rgba(253, 22, 22, 1);
   color: white;
@@ -543,89 +508,243 @@ body {
   margin-top: 1vh;
 }
 
-/* .mobilenav {
-  display: flex;
-  flex-direction: row;
-} */
-
 #rotate {
   display: none;
 }
 
 
+/* MOBILE */
 
-@keyframes shake {
-  0% {
-    transform: translate(1px, 1px) rotate(0deg);
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+
+  body {
+    flex-direction: column;
+    width: 100vw;
+    height: 190vh;
+    background-image: url("./img/bgmobile.jpg");
+
   }
 
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
+  .left {
+    display: flex;
+    flex: 0;
   }
 
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
+
+  .graphic {
+    display: none;
   }
 
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
+  .screen {
+    flex: 3.5;
+    width: 100vw;
+    margin-top: 3vh;
+    height: 100vh;
   }
 
-  40% {
-    transform: translate(1px, -1px) rotate(1deg);
+  .game {
+    width: 100vw;
+    height: 100vw;
   }
 
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
+  .right {
+
+    margin-top: 5vh;
+
   }
 
-  60% {
-    transform: translate(-3px, 1px) rotate(0deg);
+  .nav {
+    width: 100vw;
+    height: 4vh;
   }
 
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
+  .navbar {
+    height: 3vh;
+    margin-bottom: 0.3vh;
+
   }
 
-  80% {
-    transform: translate(-1px, -1px) rotate(1deg);
+  #foodicon,
+  #rareicon,
+  #crateicon {
+
+    width: 4vw;
+    height: 4vw;
+    padding: 0px 0.3vw 0px 0.3vw;
   }
 
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
+  #navtext1,
+  #navtext2,
+  #navtext3 {
+    font-size: 3vw;
   }
 
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
+  #score {
+    font-size: 5vw;
+  }
+
+  #logo {
+    align-self: center;
+    width: 50vw;
+  }
+
+  .logoset {
+    justify-content: center;
+  }
+
+  .instr {
+    display: none;
+  }
+
+  #keys {
+    display: none;
+  }
+
+  .controls {
+    display: flex;
+  }
+
+  #playername {
+    width: 70%;
+    height: 4vh;
+    border: 2px solid rgb(0, 129, 52);
+  }
+
+  #h3l {
+    font-size: 6vw;
+    align-self: center;
+    text-align: center;
+    color: rgb(40, 57, 11);
+    background-color: rgb(148, 192, 0);
+    margin: 0;
+    padding: 0.7vw;
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+  }
+
+  #h3s {
+    font-size: 6vw;
+    align-self: center;
+    text-align: center;
+    color: rgb(40, 57, 11);
+    background-color: rgb(148, 192, 0);
+    margin: 0;
+    padding: 0.7vw;
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+    border-bottom: 2px solid black;
+
+  }
+
+  .normal,
+  .fast,
+  .rapid,
+  .godlike {
+    cursor: pointer;
+    font-size: 4.5vw;
+    color: black;
+    height: 5vh;
+    border-style: none;
+    border: 1px solid rgb(40, 57, 11);
+    outline: none;
+
+  }
+
+  #firstname,
+  #secondname,
+  #thirdname,
+  #fourthname,
+  #fifthname {
+    font-size: 5vw;
+    text-align: center;
+    padding-top: 0.3vw;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+  }
+
+  #first,
+  #second,
+  #third,
+  #fourth,
+  .fifth {
+    text-align: center;
+    font-size: 5vw;
+    border-bottom: 1px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+
+  }
+
+  .name p {
+    font-size: 5vw;
+    font-weight: bold;
+    margin: 0px 0px 5px 0px;
+    color: rgb(40, 57, 11);
+  }
+
+  #ok {
+    font-size: 3vw;
+    width: 18%;
+    color: white;
+    background-color: rgb(0, 129, 52);
+    border: 2px solid rgb(0, 129, 52);
+    border-style: none;
+    border-radius: 5px;
+    margin-left: 0.5vw;
+  }
+
+  .activeSpeed {
+    border: 4px outset rgb(40, 57, 11);
+    margin: 1.5vw;
+    font-size: 5vw;
+
+  }
+
+  .normal:hover,
+  .fast:hover,
+  .rapid:hover,
+  .godlike:hover {
+    font-size: 5vw;
+  }
+
+  #rotate {
+    display: none;
+  }
+  #mobileicon {
+    display: none;
   }
 }
 
-@keyframes gelatine {
+@media only screen and (max-width: 800px) and (orientation: landscape) {
 
-  from,
-  to {
-    transform: scale(1, 1);
+  .left {
+    display: none;
   }
 
-  25% {
-    transform: scale(0.9, 1.1);
+  .screen {
+    display: none;
   }
 
-  50% {
-    transform: scale(1.1, 0.9);
+  .right {
+    display: none;
   }
 
-  75% {
-    transform: scale(0.95, 1.05);
+  #rotate {
+    display: block;
+    align-self: center;
+    width: 20vw;
+    height: 20vw;
   }
+
 }
 
 
 
-
-
-
-
+/* Animations  */
 
 @-webkit-keyframes bounceInDown {
 
@@ -705,240 +824,68 @@ body {
   }
 }
 
-
-@media only screen and (max-width: 600px) and (orientation: portrait) {
-
-  body {
-    flex-direction: column;
-    width: 100vw;
-    height: 190vh;
-    background-image: url("./img/bgmobile.jpg");
-
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
   }
 
-  .left {
-    display: flex;
-    
-    flex: 0;
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
   }
 
-
-  .graphic {
-    display: none;
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
   }
 
-  .screen {
-    flex: 3.5;
-    width: 100vw;
-    margin-top: 3vh;
-    height: 100vh;
-
-    /* background-color: yellow; */
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
   }
 
-  .game {
-    width: 100vw;
-    height: 100vw;
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
   }
 
-  .right {
-
-    margin-top: 5vh;
-
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
   }
 
-  .nav {
-    width: 100vw;
-    height: 4vh;
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
   }
 
-  .navbar {
-    height: 3vh;
-    margin-bottom: 0.3vh;
-
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
   }
 
-  #foodicon,
-  #rareicon,
-  #crateicon {
-
-    width: 4vw;
-    height: 4vw;
-    padding: 0px 0.3vw 0px 0.3vw;
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
   }
 
-  #navtext1,
-  #navtext2,
-  #navtext3 {
-    font-size: 3vw;
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
   }
 
-  #score {
-    font-size: 5vw;
-  }
-
-
-  #logo {
-    align-self: center;
-    width: 50vw;
-  }
-
-  .logoset {
-    justify-content: center;
-    
-  }
-
-  .instr {
-    display: none;
-  }
-
-  #keys {
-    display: none;
-  }
-
-  .controls {
-    display: flex;
-  }
-
-  #playername {
-    width: 70%;
-    height: 4vh;
-    border: 2px solid rgb(0, 129, 52);
-
-  }
-
-
-  #h3l {
-    font-size: 6vw;
-    align-self: center;
-    text-align: center;
-    color: rgb(40, 57, 11);
-    background-color: rgb(148, 192, 0);
-    margin: 0;
-    padding: 0.7vw;
-    width: 100%;
-    border-radius: 20px 20px 0px 0px;
-    border-bottom: 2px solid black;
-    border-top: 2px solid black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-  }
-
-  #h3s {
-    font-size: 6vw;
-    align-self: center;
-    text-align: center;
-    color: rgb(40, 57, 11);
-    background-color: rgb(148, 192, 0);
-    margin: 0;
-    padding: 0.7vw;
-    width: 100%;
-    border-radius: 20px 20px 0px 0px;
-    border-bottom: 2px solid black;
-
-  }
-
-  .normal,
-  .fast,
-  .rapid,
-  .godlike {
-    cursor: pointer;
-    font-size: 5vw;
-    color: black;
-    height: 5vh;
-    border-style: none;
-    border: 1px solid rgb(40, 57, 11);
-    outline: none;
-
-  }
-
-  #firstname,
-  #secondname,
-  #thirdname,
-  #fourthname,
-  #fifthname {
-    font-size: 5vw;
-    text-align: center;
-    padding-top: 0.3vw;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-  }
-
-  #first,
-  #second,
-  #third,
-  #fourth,
-  .fifth {
-    text-align: center;
-    font-size: 5vw;
-    border-bottom: 1px solid black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-
-  }
-
-  .name p {
-    font-size: 5vw;
-    font-weight: bold;
-    margin: 0px 0px 5px 0px;
-    color: rgb(40, 57, 11);
-  }
-
-  #ok {
-    font-size: 3vw;
-    width: 18%;
-    color: white;
-    background-color: rgb(0, 129, 52);
-    border: 2px solid rgb(0, 129, 52);
-    border-style: none;
-    border-radius: 5px;
-    margin-left: 0.5vw;
-  }
-
-  .activeSpeed {
-    border: 6px outset rgb(40, 57, 11);
-    margin: 1.5vw;
-    font-size: 4.5vw;
-
-  }
-
-  .normal:hover,
-  .fast:hover,
-  .rapid:hover,
-  .godlike:hover {
-    font-size: 6vw;
-  }
-
-  #rotate {
-    display: none;
-  }
-  #mobileicon {
-    display: none;
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
   }
 }
 
-@media only screen and (max-width: 800px) and (orientation: landscape) {
+@keyframes gelatine {
 
-
-  .left {
-    display: none;
+  from,
+  to {
+    transform: scale(1, 1);
   }
 
-
-  .screen {
-    display: none;
+  25% {
+    transform: scale(0.9, 1.1);
   }
 
-  .right {
-    display: none;
+  50% {
+    transform: scale(1.1, 0.9);
   }
 
-  #rotate {
-    display: block;
-    align-self: center;
-    width: 20vw;
-    height: 20vw;
+  75% {
+    transform: scale(0.95, 1.05);
   }
-
 }
-
