@@ -197,9 +197,8 @@ body {
   display: flex;
   flex: 4;
   flex-direction: column;
-  height: 80vh;
-  width: 80vh;
-
+  height: 80vmin;
+  width: 80vmin;
 }
 
 .game {
