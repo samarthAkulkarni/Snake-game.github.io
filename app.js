@@ -24,7 +24,6 @@ const navtext1 = document.querySelector('#navtext1')
 const navtext2 = document.querySelector('#navtext2')
 const navtext3 = document.querySelector('#navtext3')
 
-
 // ! Leaderboard
 let first = document.querySelector('#first')
 let second = document.querySelector('#second')
@@ -172,7 +171,6 @@ function toggleStartEvent(event) {
     for (var i = 0; i < cells.length; i++) {
       cells[i].classList.remove('gameover')
     }
-
 
     startGame()
   }
