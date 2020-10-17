@@ -1,4 +1,4 @@
-#Snake
+# Snake
 
 ## Overview
 
@@ -24,7 +24,7 @@ Technologies used:
 - Google Fonts 
 - Royalty free graphics
 
-##Grid layout
+## Grid layout
 
 To create my game grid i decided to use a for loop which appends my generated cells into a .game div:
 
@@ -39,7 +39,7 @@ for (let i = 0; i < width ** 2; i++) {
 }
 ```
 
-##The snake
+## The snake
 
 ![Snake](./img/screenshots/snake.jpg)
 
@@ -57,7 +57,7 @@ snake.forEach((body) => {
 })
 ```
 
-##Controls
+## Controls
 
 To allow the player to turn the snake, event listeners were placed on the arrow keys. Each key changed the direction variable accordingly:
 
@@ -83,7 +83,7 @@ window.addEventListener('keydown', (event) => {
 })
 
 ```
-##The game flow
+## The game flow
 
 The main game consists of an interval, where the snake makes a certain movement each time the interval has cycled.
 
@@ -98,7 +98,7 @@ The main game consists of an interval, where the snake makes a certain movement 
       newFrame()
     }
 ```
-##Making the snake follow its head
+## Making the snake follow its head
 
 Here I used the .unshift method, which adds a snake[0] to the front of the snake array and .pop is used to remove the last part of the snake. This gives the illusion the snake is moving or turning throughout the grid.
 
@@ -109,7 +109,7 @@ snake.unshift(snake[0] - width)
       snake.pop()
 ```
 
-##Starting the game
+## Starting the game
 
 A event listener for the space bar starts a chain of code, reseting the game board to default values and starting a fresh interval. A lot of stuff happens:
 
@@ -145,7 +145,7 @@ A event listener for the space bar starts a chain of code, reseting the game boa
     startGame()
 ```
 
-##Contact and Game Over
+## Contact and Game Over
 
 Each time the interval runs, a contact() function is called to check if the snake has run into itself. A for loop cycles though the snake array and if a duplicate is found, the interval ends as no two snake parts can be in the same cell at once.
 
@@ -181,7 +181,7 @@ const gameover = [101, 102, 103, 104, 121, 141, 161, 181, 182,
 
 ![Game Over](./img/screenshots/go.jpg)
 
-##Food for the snake
+## Food for the snake
 
 ![Food](./img/screenshots/food.jpg)
 
@@ -232,7 +232,7 @@ function generateRareFood() {
 ```
 ![Crate](./img/crate.png)
 
-##Leaderboard
+## Leaderboard
 
 Using local storage, logic compares the score using DOM manipulation. A name can be entered and will be stored alongside the score. Logic will determine where the scoreTotal ranks within the five places available. If a player chooses not to give their name, their score will still be applied to the leaderboard.
 
@@ -259,7 +259,7 @@ function checkLeaderboard() {
 ```
 ![Leaderboard](./img/screenshots/leaderboard.jpg)
 
-##Settings
+## Settings
 
 Allowing the user to choose their snake speed, the points assigned when food is eaten by the snake change depending on what speed the user chooses.
 
@@ -283,7 +283,7 @@ normal.addEventListener('click', () => {
 
 ![Settings](./img/screenshots/settings.jpg)
 
-##Mobile version
+## Mobile version
 
 This CSS uses a media query to specify when the mobile version should be activated. I rearanged my flexbox properties to a column and made adjustements to the viewpoint properties to make the game aesthetically pleasing on smaller devices. Controls were added in the form of buttons, 
 
@@ -316,7 +316,7 @@ This CSS uses a media query to specify when the mobile version should be activat
 
 <!--![Mobile version landscape mode](./img/screenshots/mv3.jpg)-->
 
-##Bugs (Fixed)
+## Bugs (Fixed)
 
 - Snake eating 'ghost' food and recieving points. In my dragonfly and crate if statements which checked if the snake has ate either of them, I had to assign their values to undefined after the snake ate them, so that my food logic wont pickup the same cell number in the next interval and think snake[0] is equal to the food again.
  
@@ -332,19 +332,19 @@ Without the equals the snake had no plan to ever go up from cell 20, which made 
 
 
  
-##Prototype
+## Prototype
 
 - Early stages here, where i was testing what cells i would need to create logic for the snake movement. For example if the snake hits the top upper cells, the new snake head (snake[0]) would be teleported to the opposite side of the grid, giving the illusion of it moving past the upper border and appearing on the bottom.
 
 ![Prototype](./img/screenshots/prototype.jpg)
 
-##Potential future features
+## Potential future features
 
 - Server side leaderboard using backend development.
 - Swipe mobile controls for the snake, and to make the game run smoother on mobile.
 - Not allow dragonflies and crates to generate inside a snake cell.
 
-##Artworks
+## Artworks
 
 Background
 - pngtree.com
