@@ -21,10 +21,8 @@ Technologies used:
 - JavaScript ES6
 - Git
 - GitHub
-- Google Fonts
+- Google Fonts 
 - Royalty free graphics
-
-##Approach
 
 ##Grid layout
 
