@@ -4,6 +4,8 @@
 
 My first project of the Software Engeneering Immersive course in General Assembly. My game was to be a grid based and function inside a browser using HTML, CSS and JavaScript. I was to use my knowledge of the past three weeks of learning to create the game individually.
 
+[PLAY HERE](https://kasjanhinc.github.io/Project-1/)
+
 ## Brief
 
 - Create a classic snake game inside a browser.
@@ -14,7 +16,7 @@ My first project of the Software Engeneering Immersive course in General Assembl
 - Use best practices for writing code, such as semantic markup.
 - The game should have enhancements such as a leaderboard.
 
-Technologies used:
+**Technologies used:**
 
 - HTML5
 - CSS
@@ -26,7 +28,7 @@ Technologies used:
 
 ## Grid layout
 
-To create my game grid i decided to use a for loop which appends my generated cells into a .game div:
+To create my game grid i decided to use a for loop which appends my generated cells into a .game div.
 
 - Width was set to 20, therefore 400 cells were created inside my .game div.
 
@@ -49,7 +51,7 @@ My snake was made in the form of an array, where each element of the array corre
 let snake = [210, 230, 250]
 ```
 
-- Assigning my snake at the start of the game, the snake class is assigned to the cells 210, 230 and 250:
+- Assigning my snake at the start of the game, the snake class is assigned to the cells 210, 230 and 250.
 
 ```js
 snake.forEach((body) => {
@@ -59,7 +61,7 @@ snake.forEach((body) => {
 
 ## Controls
 
-To allow the player to turn the snake, event listeners were placed on the arrow keys. Each key changed the direction variable accordingly:
+To allow the player to turn the snake, event listeners were placed on the arrow keys. Each key changed the direction variable accordingly.
 
 ```js
 let direction = 'up'
@@ -87,7 +89,7 @@ window.addEventListener('keydown', (event) => {
 
 The main game consists of an interval, where the snake makes a certain movement each time the interval has cycled.
 
-- If direction is equal to up, a corresponding if statement decides how the snake should move:
+- If direction is equal to up, a corresponding if statement decides how the snake should move.
 
 ```js
    const interval = setInterval(() => {
@@ -102,7 +104,7 @@ The main game consists of an interval, where the snake makes a certain movement 
 
 Here I used the .unshift method, which adds a snake[0] to the front of the snake array and .pop is used to remove the last part of the snake. This gives the illusion the snake is moving or turning throughout the grid.
 
-- Here the snake will move up the grid:
+- Here the snake will move up the grid.
 
 ```js
 snake.unshift(snake[0] - width)
