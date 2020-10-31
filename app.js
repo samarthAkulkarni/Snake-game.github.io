@@ -487,7 +487,7 @@ start.addEventListener('click', () => {
   startGame()
 })
 
-// ! Listeners on the settings 
+// ! Listeners on the speed settings 
 normal.classList.add('activeSpeed')
 
 normal.addEventListener('click', () => {
