@@ -4,7 +4,7 @@
 
 My first project of the Software Engeneering Immersive course in General Assembly. My game was to be a grid based and function inside a browser using HTML, CSS and JavaScript. I was to use my knowledge of the past three weeks of learning to create the game individually.
 
-[PLAY HERE](https://kasjanhinc.github.io/Project-1/)
+[PLAY HERE](https://kasjanhinc.github.io/Snake/)
 
 ## Brief
 
