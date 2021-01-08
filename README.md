@@ -2,7 +2,7 @@
 
 ## Overview
 
-My first project of the Software Engeneering Immersive course in General Assembly. My game was to be a grid based and function inside a browser using HTML, CSS and JavaScript. I was to use my knowledge of the past three weeks of learning to create the game individually.
+My first project of the Software Engineering Immersive course in General Assembly. My game was to be a grid based and function inside a browser using HTML, CSS and JavaScript. I was to use my knowledge of the past three weeks of learning to create the game individually.
 
 [PLAY HERE](https://kasjanhinc.github.io/Snake/)
 
@@ -26,7 +26,7 @@ My first project of the Software Engeneering Immersive course in General Assembl
 - Google Fonts 
 - Royalty free graphics
 
-## Grid layout
+## Grid Layout
 
 To create my game grid i decided to use a for loop which appends my generated cells into a .game div.
 
@@ -41,7 +41,7 @@ for (let i = 0; i < width ** 2; i++) {
 }
 ```
 
-## The snake
+## The Snake
 
 ![Snake](./img/screenshots/snake.jpg)
 
@@ -85,7 +85,7 @@ window.addEventListener('keydown', (event) => {
 })
 
 ```
-## The game flow
+## The Game Flow
 
 The main game consists of an interval, where the snake makes a certain movement each time the interval has cycled.
 
@@ -100,7 +100,7 @@ The main game consists of an interval, where the snake makes a certain movement 
       newFrame()
     }
 ```
-## Making the snake follow its head
+## Making The Snake Follow Its Head
 
 Here I used the .unshift method, which adds a snake[0] to the front of the snake array and .pop is used to remove the last part of the snake. This gives the illusion the snake is moving or turning throughout the grid.
 
@@ -111,7 +111,7 @@ snake.unshift(snake[0] - width)
       snake.pop()
 ```
 
-## Starting the game
+## Starting The Game
 
 A event listener for the space bar starts a chain of code, reseting the game board to default values and starting a fresh interval. A lot of stuff happens:
 
@@ -120,7 +120,7 @@ A event listener for the space bar starts a chain of code, reseting the game boa
 - Snake is reset to ``` [210, 230, 250] ```
 - The score is set to 0 inside JavaScript as well as in the HTML div containing the score for the player to see.
 - Default starting snake direction is 'up'.
-- Instructions, arrow key graphic, settings tab and name input dissapear when the game is being played.
+- Instructions, arrow key graphic, settings tab and name input disappear when the game is being played.
 - Style for the bottom of the leaderboard is changed to make up for the lack of a name input.
 - Removes the class .gameover for every cell in the grid.
 - Runs the function startGame(), which contains the main game interval and the main logic.
@@ -147,7 +147,7 @@ A event listener for the space bar starts a chain of code, reseting the game boa
     startGame()
 ```
 
-## Contact and Game Over
+## Contact And Game Over
 
 Each time the interval runs, a contact() function is called to check if the snake has run into itself. A for loop cycles though the snake array and if a duplicate is found, the interval ends as no two snake parts can be in the same cell at once.
 
@@ -161,7 +161,7 @@ Each time the interval runs, a contact() function is called to check if the snak
           clearInterval(interval)
 ```
 
-The game over splashscreen is made up of cells which have the .gameover class assigned to them. When contact() is triggered, the following code runs:
+The game over splash screen is made up of cells which have the .gameover class assigned to them. When contact() is triggered, the following code runs:
 
 ```js
           gameover.forEach((over) => {
@@ -183,7 +183,7 @@ const gameover = [101, 102, 103, 104, 121, 141, 161, 181, 182,
 
 ![Game Over](./img/screenshots/go.jpg)
 
-## Food for the snake
+## Food For The Snake
 
 ![Food](./img/screenshots/food.jpg)
 
@@ -204,7 +204,7 @@ function generateFood() {
   }
 }
 ```
-- Rare food which dissapears and reapears (dragonfly and crates) works in the form of a timeout. A rare piece is placed at the start of the game, once the snake eats the first piece, a countdown triggers which will randomly place another piece in the grid. A second timer removes the piece after three seconds.
+- Rare food which disappears and reappears (dragonfly and crates) works in the form of a timeout. A rare piece is placed at the start of the game, once the snake eats the first piece, a countdown triggers which will randomly place another piece in the grid. A second timer removes the piece after three seconds.
 
 ```js
 setTimeout(() => {
@@ -265,7 +265,7 @@ function checkLeaderboard() {
 
 Allowing the user to choose their snake speed, the points assigned when food is eaten by the snake change depending on what speed the user chooses.
 
-- Here the normal settings is activated, the activepoints change to an array of integers, where each integer corresponds to the points gained depending on what food type is eaten. DOM manipulation is used to show the player the benefits of each speed type.
+- Here the normal settings is activated, the active points change to an array of integers, where each integer corresponds to the points gained depending on what food type is eaten. DOM manipulation is used to show the player the benefits of each speed type.
 
 ```js
 normal.addEventListener('click', () => {
@@ -285,9 +285,9 @@ normal.addEventListener('click', () => {
 
 ![Settings](./img/screenshots/settings.jpg)
 
-## Mobile version
+## Mobile Version
 
-This CSS uses a media query to specify when the mobile version should be activated. I rearanged my flexbox properties to a column and made adjustements to the viewpoint properties to make the game aesthetically pleasing on smaller devices. Controls were added in the form of buttons, 
+This CSS uses a media query to specify when the mobile version should be activated. I rearranged my flexbox properties to a column and made adjustments to the viewpoint properties to make the game aesthetically pleasing on smaller devices. Controls were added in the form of buttons, 
 
 - A snippet of my CSS media query, in this case for portrait mode:
 
@@ -320,7 +320,7 @@ This CSS uses a media query to specify when the mobile version should be activat
 
 ## Bugs (Fixed)
 
-- Snake eating 'ghost' food and recieving points. In my dragonfly and crate if statements which checked if the snake has ate either of them, I had to assign their values to undefined after the snake ate them, so that my food logic wont pickup the same cell number in the next interval and think snake[0] is equal to the food again.
+- Snake eating 'ghost' food and receiving points. In my dragonfly and crate if statements which checked if the snake has ate either of them, I had to assign their values to undefined after the snake ate them, so that my food logic wont pickup the same cell number in the next interval and think snake[0] is equal to the food again.
  
  This line runs after the crate has been eaten by the snake. The next cycle of the game interval wont recognise the crate cell number, not allowing the snake to eat it again. That is until my timeout generate another crate.
  
@@ -340,7 +340,7 @@ Without the equals the snake had no plan to ever go up from cell 20, which made 
 
 ![Prototype](./img/screenshots/prototype.jpg)
 
-## Potential future features
+## Potential Future Features
 
 - Server side leaderboard using backend development.
 - Swipe mobile controls for the snake, and to make the game run smoother on mobile.
@@ -359,5 +359,4 @@ Snake graphic
 
 Snake logo
 - Canva.com
-
 
