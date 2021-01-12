@@ -332,7 +332,15 @@ This CSS uses a media query to specify when the mobile version should be activat
 
 Without the equals the snake had no plan to ever go up from cell 20, which made him stop forever.
 
+## Wins
 
+- I got a chance to really practise my logic skills to make the game playable and not bug ridden.
+- I developed my design skills, giving me more confidence in CSS.
+
+## Challenges
+
+- Working with a clever leaderboard table which allows the user to enter a name, but not have to.
+- Giving the game good responsiveness and mobile playability.
  
 ## Prototype
 
