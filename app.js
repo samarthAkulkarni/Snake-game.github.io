@@ -1,3 +1,9 @@
+// LOADER ON START
+
+$(window).on('load', function () {
+  $('.loader-wrapper').slideUp()
+})
+
 //! Settings
 const settings = document.querySelector('.settings')
 const keys = document.querySelector('#keys')
@@ -431,7 +437,7 @@ function generateCrate() {
 // ! Listeners on the arrows, changes the direction of the snake
 window.addEventListener('keydown', (event) => {
   const key = event.key
-
+console.log(key)
   if (key === 'ArrowUp') {
     direction = 'up'
   } else if (key === 'ArrowDown') {

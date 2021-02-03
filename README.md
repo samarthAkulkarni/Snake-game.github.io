@@ -6,6 +6,8 @@ My first project of the Software Engineering Immersive course in General Assembl
 
 [PLAY HERE](https://kasjanhinc.github.io/Snake/)
 
+![Snake](./img/screenshots/home.png)
+
 ## Brief
 
 - Create a classic snake game inside a browser.
