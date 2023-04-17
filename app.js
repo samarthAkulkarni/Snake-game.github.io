@@ -435,20 +435,20 @@ function generateCrate() {
 }
 
 // ! Listeners on the arrows, changes the direction of the snake
-window.addEventListener('keydown', (event) => {
-  const key = event.key
-console.log(key)
-  if (key === 'ArrowUp') {
-    direction = 'up'
-  } else if (key === 'ArrowDown') {
-    direction = 'down'
-  } else if (key === 'ArrowLeft') {
-    direction = 'left'
-  } else if (key === 'ArrowRight') {
-    direction = 'right'
-  }
+// window.addEventListener('keydown', (event) => {
+//   const key = event.key
+// // console.log(key)
+//   if (key === 'ArrowUp') {
+//     direction = 'up'
+//   } else if (key === 'ArrowDown') {
+//     direction = 'down'
+//   } else if (key === 'ArrowLeft') {
+//     direction = 'left'
+//   } else if (key === 'ArrowRight') {
+//     direction = 'right'
+//   }
 
-})
+// })
 
 
 // ! Snake buttons for mobile

