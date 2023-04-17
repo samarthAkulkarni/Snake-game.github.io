@@ -4,7 +4,7 @@ var InError = document.querySelector('#incorrect-error')
 
 setTimeout(() => {
     screen.style = 'display: flex;'
-}, 17000)
+}, 23000)
 
 function LogIn() {
     var u_name = document.getElementById('insta-username')
